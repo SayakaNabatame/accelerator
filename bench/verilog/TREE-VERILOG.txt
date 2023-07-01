@@ -1,0 +1,129 @@
+code
+├── baremetal
+│   ├── design
+│   │   ├── arithmetic
+│   │   │   ├── fixed
+│   │   │   │   ├── accelerator_fixed_pkg.sv
+│   │   │   │   ├── accelerator_fixed_stimulus.sv
+│   │   │   │   └── accelerator_fixed_testbench.sv
+│   │   │   ├── float
+│   │   │   │   ├── accelerator_float_pkg.sv
+│   │   │   │   ├── accelerator_float_stimulus.sv
+│   │   │   │   └── accelerator_float_testbench.sv
+│   │   │   └── integer
+│   │   │       ├── accelerator_integer_pkg.sv
+│   │   │       ├── accelerator_integer_stimulus.sv
+│   │   │       └── accelerator_integer_testbench.sv
+│   │   └── math
+│   │       ├── algebra
+│   │       │   ├── accelerator_algebra_pkg.sv
+│   │       │   ├── accelerator_algebra_stimulus.sv
+│   │       │   └── accelerator_algebra_testbench.sv
+│   │       ├── calculus
+│   │       │   ├── accelerator_calculus_pkg.sv
+│   │       │   ├── accelerator_calculus_stimulus.sv
+│   │       │   └── accelerator_calculus_testbench.sv
+│   │       ├── function
+│   │       │   ├── accelerator_function_pkg.sv
+│   │       │   ├── accelerator_function_stimulus.sv
+│   │       │   └── accelerator_function_testbench.sv
+│   │       └── series
+│   │           ├── accelerator_series_pkg.sv
+│   │           ├── accelerator_series_stimulus.sv
+│   │           └── accelerator_series_testbench.sv
+│   └── model
+│       ├── arithmetic
+│       │   ├── fixed
+│       │   │   ├── model_fixed_pkg.sv
+│       │   │   ├── model_fixed_stimulus.sv
+│       │   │   └── model_fixed_testbench.sv
+│       │   ├── float
+│       │   │   ├── model_float_pkg.sv
+│       │   │   ├── model_float_stimulus.sv
+│       │   │   └── model_float_testbench.sv
+│       │   └── integer
+│       │       ├── model_integer_pkg.sv
+│       │       ├── model_integer_stimulus.sv
+│       │       └── model_integer_testbench.sv
+│       └── math
+│           ├── algebra
+│           │   ├── model_algebra_pkg.sv
+│           │   ├── model_algebra_stimulus.sv
+│           │   └── model_algebra_testbench.sv
+│           ├── calculus
+│           │   ├── model_calculus_pkg.sv
+│           │   ├── model_calculus_stimulus.sv
+│           │   └── model_calculus_testbench.sv
+│           ├── function
+│           │   ├── model_function_pkg.sv
+│           │   ├── model_function_stimulus.sv
+│           │   └── model_function_testbench.sv
+│           └── series
+│               ├── model_series_pkg.sv
+│               ├── model_series_stimulus.sv
+│               └── model_series_testbench.sv
+└── tests
+    ├── design
+    │   ├── arithmetic
+    │   │   ├── fixed
+    │   │   │   ├── accelerator_fixed_pkg.sv
+    │   │   │   ├── accelerator_fixed_stimulus.sv
+    │   │   │   └── accelerator_fixed_testbench.sv
+    │   │   ├── float
+    │   │   │   ├── accelerator_float_pkg.sv
+    │   │   │   ├── accelerator_float_stimulus.sv
+    │   │   │   └── accelerator_float_testbench.sv
+    │   │   └── integer
+    │   │       ├── accelerator_integer_pkg.sv
+    │   │       ├── accelerator_integer_stimulus.sv
+    │   │       └── accelerator_integer_testbench.sv
+    │   └── math
+    │       ├── algebra
+    │       │   ├── accelerator_algebra_pkg.sv
+    │       │   ├── accelerator_algebra_stimulus.sv
+    │       │   └── accelerator_algebra_testbench.sv
+    │       ├── calculus
+    │       │   ├── accelerator_calculus_pkg.sv
+    │       │   ├── accelerator_calculus_stimulus.sv
+    │       │   └── accelerator_calculus_testbench.sv
+    │       ├── function
+    │       │   ├── accelerator_function_pkg.sv
+    │       │   ├── accelerator_function_stimulus.sv
+    │       │   └── accelerator_function_testbench.sv
+    │       └── series
+    │           ├── accelerator_series_pkg.sv
+    │           ├── accelerator_series_stimulus.sv
+    │           └── accelerator_series_testbench.sv
+    └── model
+        ├── arithmetic
+        │   ├── fixed
+        │   │   ├── model_fixed_pkg.sv
+        │   │   ├── model_fixed_stimulus.sv
+        │   │   └── model_fixed_testbench.sv
+        │   ├── float
+        │   │   ├── model_float_pkg.sv
+        │   │   ├── model_float_stimulus.sv
+        │   │   └── model_float_testbench.sv
+        │   └── integer
+        │       ├── model_integer_pkg.sv
+        │       ├── model_integer_stimulus.sv
+        │       └── model_integer_testbench.sv
+        └── math
+            ├── algebra
+            │   ├── model_algebra_pkg.sv
+            │   ├── model_algebra_stimulus.sv
+            │   └── model_algebra_testbench.sv
+            ├── calculus
+            │   ├── model_calculus_pkg.sv
+            │   ├── model_calculus_stimulus.sv
+            │   └── model_calculus_testbench.sv
+            ├── function
+            │   ├── model_function_pkg.sv
+            │   ├── model_function_stimulus.sv
+            │   └── model_function_testbench.sv
+            └── series
+                ├── model_series_pkg.sv
+                ├── model_series_stimulus.sv
+                └── model_series_testbench.sv
+
+42 directories, 84 files

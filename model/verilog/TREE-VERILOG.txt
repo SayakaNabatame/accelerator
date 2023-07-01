@@ -1,0 +1,137 @@
+code
+├── architecture
+│   ├── mpsoc
+│   │   └── model_mpsoc.sv
+│   ├── pu
+│   │   └── model_pu.sv
+│   └── soc
+│       └── model_soc.sv
+├── arithmetic
+│   ├── fixed
+│   │   ├── matrix
+│   │   │   ├── model_matrix_fixed_adder.sv
+│   │   │   ├── model_matrix_fixed_divider.sv
+│   │   │   └── model_matrix_fixed_multiplier.sv
+│   │   ├── scalar
+│   │   │   ├── model_scalar_fixed_adder.sv
+│   │   │   ├── model_scalar_fixed_divider.sv
+│   │   │   └── model_scalar_fixed_multiplier.sv
+│   │   ├── tensor
+│   │   │   ├── model_tensor_fixed_adder.sv
+│   │   │   ├── model_tensor_fixed_divider.sv
+│   │   │   └── model_tensor_fixed_multiplier.sv
+│   │   └── vector
+│   │       ├── model_vector_fixed_adder.sv
+│   │       ├── model_vector_fixed_divider.sv
+│   │       └── model_vector_fixed_multiplier.sv
+│   ├── float
+│   │   ├── matrix
+│   │   │   ├── model_matrix_float_adder.sv
+│   │   │   ├── model_matrix_float_divider.sv
+│   │   │   └── model_matrix_float_multiplier.sv
+│   │   ├── scalar
+│   │   │   ├── model_scalar_float_adder.sv
+│   │   │   ├── model_scalar_float_divider.sv
+│   │   │   └── model_scalar_float_multiplier.sv
+│   │   ├── tensor
+│   │   │   ├── model_tensor_float_adder.sv
+│   │   │   ├── model_tensor_float_divider.sv
+│   │   │   └── model_tensor_float_multiplier.sv
+│   │   └── vector
+│   │       ├── model_vector_float_adder.sv
+│   │       ├── model_vector_float_divider.sv
+│   │       └── model_vector_float_multiplier.sv
+│   └── integer
+│       ├── matrix
+│       │   ├── model_matrix_integer_adder.sv
+│       │   ├── model_matrix_integer_divider.sv
+│       │   └── model_matrix_integer_multiplier.sv
+│       ├── scalar
+│       │   ├── model_scalar_integer_adder.sv
+│       │   ├── model_scalar_integer_divider.sv
+│       │   └── model_scalar_integer_multiplier.sv
+│       ├── tensor
+│       │   ├── model_tensor_integer_adder.sv
+│       │   ├── model_tensor_integer_divider.sv
+│       │   └── model_tensor_integer_multiplier.sv
+│       └── vector
+│           ├── model_vector_integer_adder.sv
+│           ├── model_vector_integer_divider.sv
+│           └── model_vector_integer_multiplier.sv
+├── math
+│   ├── algebra
+│   │   ├── matrix
+│   │   │   ├── model_matrix_convolution.sv
+│   │   │   ├── model_matrix_inverse.sv
+│   │   │   ├── model_matrix_multiplication.sv
+│   │   │   ├── model_matrix_product.sv
+│   │   │   ├── model_matrix_summation.sv
+│   │   │   ├── model_matrix_transpose.sv
+│   │   │   ├── model_matrix_vector_convolution.sv
+│   │   │   └── model_matrix_vector_product.sv
+│   │   ├── tensor
+│   │   │   ├── model_tensor_convolution.sv
+│   │   │   ├── model_tensor_inverse.sv
+│   │   │   ├── model_tensor_matrix_convolution.sv
+│   │   │   ├── model_tensor_matrix_product.sv
+│   │   │   ├── model_tensor_product.sv
+│   │   │   └── model_tensor_transpose.sv
+│   │   └── vector
+│   │       ├── model_dot_product.sv
+│   │       ├── model_vector_convolution.sv
+│   │       ├── model_vector_cosine_similarity.sv
+│   │       ├── model_vector_module.sv
+│   │       ├── model_vector_multiplication.sv
+│   │       ├── model_vector_summation.sv
+│   │       └── model_vector_transpose.sv
+│   ├── calculus
+│   │   ├── matrix
+│   │   │   ├── model_matrix_differentiation.sv
+│   │   │   ├── model_matrix_integration.sv
+│   │   │   └── model_matrix_softmax.sv
+│   │   ├── tensor
+│   │   │   ├── model_tensor_differentiation.sv
+│   │   │   ├── model_tensor_integration.sv
+│   │   │   └── model_tensor_softmax.sv
+│   │   └── vector
+│   │       ├── model_vector_differentiation.sv
+│   │       ├── model_vector_integration.sv
+│   │       └── model_vector_softmax.sv
+│   ├── function
+│   │   ├── matrix
+│   │   │   ├── model_matrix_logistic_function.sv
+│   │   │   └── model_matrix_oneplus_function.sv
+│   │   ├── scalar
+│   │   │   ├── model_scalar_logistic_function.sv
+│   │   │   └── model_scalar_oneplus_function.sv
+│   │   └── vector
+│   │       ├── model_vector_logistic_function.sv
+│   │       └── model_vector_oneplus_function.sv
+│   └── series
+│       ├── matrix
+│       │   ├── model_matrix_cosh_function.sv
+│       │   ├── model_matrix_exponentiator_function.sv
+│       │   ├── model_matrix_logarithm_function.sv
+│       │   ├── model_matrix_sinh_function.sv
+│       │   └── model_matrix_tanh_function.sv
+│       ├── scalar
+│       │   ├── model_scalar_cosh_function.sv
+│       │   ├── model_scalar_exponentiator_function.sv
+│       │   ├── model_scalar_logarithm_function.sv
+│       │   ├── model_scalar_sinh_function.sv
+│       │   └── model_scalar_tanh_function.sv
+│       └── vector
+│           ├── model_vector_cosh_function.sv
+│           ├── model_vector_exponentiator_function.sv
+│           ├── model_vector_logarithm_function.sv
+│           ├── model_vector_sinh_function.sv
+│           └── model_vector_tanh_function.sv
+└── pkg
+    ├── model_arithmetic_pkg.sv
+    ├── model_fnn_controller_pkg.sv
+    ├── model_lstm_controller_pkg.sv
+    ├── model_math_pkg.sv
+    ├── model_ntm_core_pkg.sv
+    └── model_state_pkg.sv
+
+38 directories, 96 files
