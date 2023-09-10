@@ -37,11 +37,11 @@
 // Author(s):
 //   Paco Reina Campo <pacoreinacampo@queenfield.tech>
 
-import model_arithmetic_pkg::*;
+import model_arithmetic_verilog_pkg::*;
 
 module model_scalar_integer_divider #(
   parameter DATA_SIZE    = 64,
-  parameter CONTROL_SIZE = 64
+  parameter CONTROL_SIZE = 4
 ) (
   // GLOBAL
   input CLK,
@@ -56,7 +56,7 @@ module model_scalar_integer_divider #(
   input      [DATA_SIZE-1:0] DATA_B_IN,
 
   output reg [DATA_SIZE-1:0] DATA_OUT,
-  output reg                 OVERFLOW_OUT
+  output reg                 REMAINDER_OUT
 );
 
   //////////////////////////////////////////////////////////////////////////////
@@ -123,7 +123,7 @@ module model_scalar_integer_divider #(
           // Data Outputs
           DATA_OUT             <= data_a_int / data_b_int;
 
-          REMAINDER_OUT        <= data_a_int rem data_b_int;
+          REMAINDER_OUT        <= data_a_int % data_b_int;
 
           // Control Outputs
           READY                <= 1'b1;

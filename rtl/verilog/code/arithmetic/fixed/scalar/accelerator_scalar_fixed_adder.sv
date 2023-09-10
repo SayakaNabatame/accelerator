@@ -37,11 +37,11 @@
 // Author(s):
 //   Paco Reina Campo <pacoreinacampo@queenfield.tech>
 
-import accelerator_arithmetic_pkg::*;
+import accelerator_arithmetic_verilog_pkg::*;
 
 module accelerator_scalar_fixed_adder #(
   parameter DATA_SIZE    = 64,
-  parameter CONTROL_SIZE = 64
+  parameter CONTROL_SIZE = 4
 ) (
   // GLOBAL
   input CLK,
@@ -125,7 +125,7 @@ module accelerator_scalar_fixed_adder #(
           // Data Outputs
           if (OPERATION == 1'b1) begin
             DATA_OUT         <= $realtobits(data_a_int - data_b_int);
-          else
+          end else begin
             DATA_OUT         <= $realtobits(data_a_int + data_b_int);
           end
 

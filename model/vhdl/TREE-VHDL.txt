@@ -1,11 +1,4 @@
 code
-├── architecture
-│   ├── mpsoc
-│   │   └── model_mpsoc.vhd
-│   ├── pu
-│   │   └── model_pu.vhd
-│   └── soc
-│       └── model_soc.vhd
 ├── arithmetic
 │   ├── fixed
 │   │   ├── matrix
@@ -127,11 +120,13 @@ code
 │           ├── model_vector_sinh_function.vhd
 │           └── model_vector_tanh_function.vhd
 └── pkg
-    ├── model_arithmetic_pkg.vhd
-    ├── model_fnn_controller_pkg.vhd
-    ├── model_lstm_controller_pkg.vhd
-    ├── model_math_pkg.vhd
-    ├── model_ntm_core_pkg.vhd
-    └── model_state_pkg.vhd
+    ├── model_arithmetic_vhdl_pkg.vhd
+    ├── model_fnn_controller_vhdl_pkg.vhd
+    ├── model_linear_controller_vhdl_pkg.vhd
+    ├── model_lstm_controller_vhdl_pkg.vhd
+    ├── model_math_vhdl_pkg.vhd
+    ├── model_ntm_core_vhdl_pkg.vhd
+    ├── model_state_vhdl_pkg.vhd
+    └── model_transformer_controller_vhdl_pkg.vhd
 
-38 directories, 96 files
+34 directories, 95 files

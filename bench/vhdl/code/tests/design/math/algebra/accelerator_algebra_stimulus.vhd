@@ -42,16 +42,16 @@ library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
 
-use work.accelerator_arithmetic_pkg.all;
-use work.accelerator_arithmetic_pkg.all;
-use work.accelerator_math_pkg.all;
+use work.accelerator_arithmetic_vhdl_pkg.all;
+use work.accelerator_arithmetic_vhdl_pkg.all;
+use work.accelerator_math_vhdl_pkg.all;
 use work.accelerator_algebra_pkg.all;
 
 entity accelerator_algebra_stimulus is
   generic (
     -- SYSTEM-SIZE
     DATA_SIZE    : integer := 64;
-    CONTROL_SIZE : integer := 64;
+    CONTROL_SIZE : integer := 4;
 
     X : std_logic_vector(DATA_SIZE-1 downto 0) := std_logic_vector(to_unsigned(64, DATA_SIZE));  -- x in 0 to X-1
     Y : std_logic_vector(DATA_SIZE-1 downto 0) := std_logic_vector(to_unsigned(64, DATA_SIZE));  -- y in 0 to Y-1
@@ -628,16 +628,16 @@ begin
     if (STIMULUS_ACCELERATOR_DOT_PRODUCT_TEST) then
 
       -------------------------------------------------------------------
-      MONITOR_TEST <= "STIMULUS_NTM_DOT_PRODUCT_TEST           ";
+      MONITOR_TEST <= "STIMULUS_ACCELERATOR_DOT_PRODUCT_TEST                                 ";
       -------------------------------------------------------------------
 
       -- DATA
-      DOT_PRODUCT_LENGTH_IN <= THREE_CONTROL;
+      DOT_PRODUCT_LENGTH_IN <= FOUR_CONTROL;
 
       if (STIMULUS_ACCELERATOR_DOT_PRODUCT_CASE_0) then
 
         -------------------------------------------------------------------
-        MONITOR_CASE <= "STIMULUS_NTM_DOT_PRODUCT_CASE 0         ";
+        MONITOR_CASE <= "STIMULUS_ACCELERATOR_DOT_PRODUCT_CASE 0                               ";
         -------------------------------------------------------------------
 
         -- INITIAL CONDITIONS
@@ -688,7 +688,7 @@ begin
       if (STIMULUS_ACCELERATOR_DOT_PRODUCT_CASE_1) then
 
         -------------------------------------------------------------------
-        MONITOR_CASE <= "STIMULUS_NTM_DOT_PRODUCT_CASE 1         ";
+        MONITOR_CASE <= "STIMULUS_ACCELERATOR_DOT_PRODUCT_CASE 1                               ";
         -------------------------------------------------------------------
 
         -- INITIAL CONDITIONS
@@ -743,16 +743,16 @@ begin
     if (STIMULUS_ACCELERATOR_VECTOR_CONVOLUTION_TEST) then
 
       -------------------------------------------------------------------
-      MONITOR_TEST <= "STIMULUS_NTM_VECTOR_CONVOLUTION_TEST    ";
+      MONITOR_TEST <= "STIMULUS_ACCELERATOR_VECTOR_CONVOLUTION_TEST                          ";
       -------------------------------------------------------------------
 
       -- DATA
-      VECTOR_CONVOLUTION_LENGTH_IN <= THREE_CONTROL;
+      VECTOR_CONVOLUTION_LENGTH_IN <= FOUR_CONTROL;
 
       if (STIMULUS_ACCELERATOR_VECTOR_CONVOLUTION_CASE_0) then
 
         -------------------------------------------------------------------
-        MONITOR_CASE <= "STIMULUS_NTM_VECTOR_CONVOLUTION_CASE 0  ";
+        MONITOR_CASE <= "STIMULUS_ACCELERATOR_VECTOR_CONVOLUTION_CASE 0                        ";
         -------------------------------------------------------------------
 
         -- INITIAL CONDITIONS
@@ -803,7 +803,7 @@ begin
       if (STIMULUS_ACCELERATOR_VECTOR_CONVOLUTION_CASE_1) then
 
         -------------------------------------------------------------------
-        MONITOR_CASE <= "STIMULUS_NTM_VECTOR_CONVOLUTION_CASE 1  ";
+        MONITOR_CASE <= "STIMULUS_ACCELERATOR_VECTOR_CONVOLUTION_CASE 1                        ";
         -------------------------------------------------------------------
 
         -- INITIAL CONDITIONS
@@ -858,16 +858,16 @@ begin
     if (STIMULUS_ACCELERATOR_VECTOR_COSINE_SIMILARITY_TEST) then
 
       -------------------------------------------------------------------
-      MONITOR_TEST <= "STIMULUS_NTM_VECTOR_COSINE_TEST         ";
+      MONITOR_TEST <= "STIMULUS_ACCELERATOR_VECTOR_COSINE_TEST                               ";
       -------------------------------------------------------------------
 
       -- DATA
-      VECTOR_COSINE_SIMILARITY_LENGTH_IN <= THREE_CONTROL;
+      VECTOR_COSINE_SIMILARITY_LENGTH_IN <= FOUR_CONTROL;
 
       if (STIMULUS_ACCELERATOR_VECTOR_COSINE_SIMILARITY_CASE_0) then
 
         -------------------------------------------------------------------
-        MONITOR_CASE <= "STIMULUS_NTM_VECTOR_COSINE_CASE 0       ";
+        MONITOR_CASE <= "STIMULUS_ACCELERATOR_VECTOR_COSINE_CASE 0                             ";
         -------------------------------------------------------------------
 
         -- INITIAL CONDITIONS
@@ -918,7 +918,7 @@ begin
       if (STIMULUS_ACCELERATOR_VECTOR_COSINE_SIMILARITY_CASE_1) then
 
         -------------------------------------------------------------------
-        MONITOR_CASE <= "STIMULUS_NTM_VECTOR_COSINE_CASE 1       ";
+        MONITOR_CASE <= "STIMULUS_ACCELERATOR_VECTOR_COSINE_CASE 1                             ";
         -------------------------------------------------------------------
 
         -- INITIAL CONDITIONS
@@ -973,18 +973,18 @@ begin
     if (STIMULUS_ACCELERATOR_VECTOR_MULTIPLICATION_TEST) then
 
       -------------------------------------------------------------------
-      MONITOR_TEST <= "STIMULUS_NTM_VECTOR_MULTIPLICATION_TEST ";
+      MONITOR_TEST <= "STIMULUS_ACCELERATOR_VECTOR_MULTIPLICATION_TEST                       ";
       -------------------------------------------------------------------
 
       -- DATA
-      VECTOR_MULTIPLICATION_LENGTH_IN <= THREE_CONTROL;
+      VECTOR_MULTIPLICATION_LENGTH_IN <= FOUR_CONTROL;
 
-      VECTOR_MULTIPLICATION_SIZE_IN <= THREE_CONTROL;
+      VECTOR_MULTIPLICATION_SIZE_IN <= FOUR_CONTROL;
 
       if (STIMULUS_ACCELERATOR_VECTOR_MULTIPLICATION_CASE_0) then
 
         -------------------------------------------------------------------
-        MONITOR_CASE <= "STIMULUS_NTM_VECTOR_MULTIPLICATIO_CASE 0";
+        MONITOR_CASE <= "STIMULUS_ACCELERATOR_VECTOR_MULTIPLICATIO_CASE 0                      ";
         -------------------------------------------------------------------
 
         -- INITIAL CONDITIONS
@@ -1044,7 +1044,7 @@ begin
       if (STIMULUS_ACCELERATOR_VECTOR_MULTIPLICATION_CASE_1) then
 
         -------------------------------------------------------------------
-        MONITOR_CASE <= "STIMULUS_NTM_VECTOR_MULTIPLICATIO_CASE 1";
+        MONITOR_CASE <= "STIMULUS_ACCELERATOR_VECTOR_MULTIPLICATION_CASE 1                     ";
         -------------------------------------------------------------------
 
         -- INITIAL CONDITIONS
@@ -1108,18 +1108,18 @@ begin
     if (STIMULUS_ACCELERATOR_VECTOR_SUMMATION_TEST) then
 
       -------------------------------------------------------------------
-      MONITOR_TEST <= "STIMULUS_NTM_VECTOR_SUMMATION_TEST      ";
+      MONITOR_TEST <= "STIMULUS_ACCELERATOR_VECTOR_SUMMATION_TEST                            ";
       -------------------------------------------------------------------
 
       -- DATA
-      VECTOR_SUMMATION_LENGTH_IN <= THREE_CONTROL;
+      VECTOR_SUMMATION_LENGTH_IN <= FOUR_CONTROL;
 
-      VECTOR_SUMMATION_SIZE_IN <= THREE_CONTROL;
+      VECTOR_SUMMATION_SIZE_IN <= FOUR_CONTROL;
 
       if (STIMULUS_ACCELERATOR_VECTOR_SUMMATION_CASE_0) then
 
         -------------------------------------------------------------------
-        MONITOR_CASE <= "STIMULUS_NTM_VECTOR_SUMMATION_CASE 0    ";
+        MONITOR_CASE <= "STIMULUS_ACCELERATOR_VECTOR_SUMMATION_CASE 0                          ";
         -------------------------------------------------------------------
 
         -- INITIAL CONDITIONS
@@ -1179,7 +1179,7 @@ begin
       if (STIMULUS_ACCELERATOR_VECTOR_SUMMATION_CASE_1) then
 
         -------------------------------------------------------------------
-        MONITOR_CASE <= "STIMULUS_NTM_VECTOR_SUMMATION_CASE 1    ";
+        MONITOR_CASE <= "STIMULUS_ACCELERATOR_VECTOR_SUMMATION_CASE 1                          ";
         -------------------------------------------------------------------
 
         -- INITIAL CONDITIONS
@@ -1243,16 +1243,16 @@ begin
     if (STIMULUS_ACCELERATOR_VECTOR_MODULE_TEST) then
 
       -------------------------------------------------------------------
-      MONITOR_TEST <= "STIMULUS_NTM_VECTOR_MODULE_TEST         ";
+      MONITOR_TEST <= "STIMULUS_ACCELERATOR_VECTOR_MODULE_TEST                               ";
       -------------------------------------------------------------------
 
       -- DATA
-      VECTOR_MODULE_LENGTH_IN <= THREE_CONTROL;
+      VECTOR_MODULE_LENGTH_IN <= FOUR_CONTROL;
 
       if (STIMULUS_ACCELERATOR_VECTOR_MODULE_CASE_0) then
 
         -------------------------------------------------------------------
-        MONITOR_CASE <= "STIMULUS_NTM_VECTOR_MODULE_CASE 0       ";
+        MONITOR_CASE <= "STIMULUS_ACCELERATOR_VECTOR_MODULE_CASE 0                             ";
         -------------------------------------------------------------------
 
         -- INITIAL CONDITIONS
@@ -1297,7 +1297,7 @@ begin
       if (STIMULUS_ACCELERATOR_VECTOR_MODULE_CASE_1) then
 
         -------------------------------------------------------------------
-        MONITOR_CASE <= "STIMULUS_NTM_VECTOR_MODULE_CASE 1       ";
+        MONITOR_CASE <= "STIMULUS_ACCELERATOR_VECTOR_MODULE_CASE 1                             ";
         -------------------------------------------------------------------
 
         -- INITIAL CONDITIONS
@@ -1346,19 +1346,19 @@ begin
     if (STIMULUS_ACCELERATOR_MATRIX_CONVOLUTION_TEST) then
 
       -------------------------------------------------------------------
-      MONITOR_TEST <= "STIMULUS_NTM_MATRIX_CONVOLUTION_TEST    ";
+      MONITOR_TEST <= "STIMULUS_ACCELERATOR_MATRIX_CONVOLUTION_TEST                          ";
       -------------------------------------------------------------------
 
       -- DATA
-      MATRIX_CONVOLUTION_SIZE_A_I_IN <= THREE_CONTROL;
-      MATRIX_CONVOLUTION_SIZE_A_J_IN <= THREE_CONTROL;
-      MATRIX_CONVOLUTION_SIZE_B_I_IN <= THREE_CONTROL;
-      MATRIX_CONVOLUTION_SIZE_B_J_IN <= THREE_CONTROL;
+      MATRIX_CONVOLUTION_SIZE_A_I_IN <= FOUR_CONTROL;
+      MATRIX_CONVOLUTION_SIZE_A_J_IN <= FOUR_CONTROL;
+      MATRIX_CONVOLUTION_SIZE_B_I_IN <= FOUR_CONTROL;
+      MATRIX_CONVOLUTION_SIZE_B_J_IN <= FOUR_CONTROL;
 
       if (STIMULUS_ACCELERATOR_MATRIX_CONVOLUTION_CASE_0) then
 
         -------------------------------------------------------------------
-        MONITOR_CASE <= "STIMULUS_NTM_MATRIX_CONVOLUTION_CASE 0  ";
+        MONITOR_CASE <= "STIMULUS_ACCELERATOR_MATRIX_CONVOLUTION_CASE 0                        ";
         -------------------------------------------------------------------
 
         -- INITIAL CONDITIONS
@@ -1429,7 +1429,7 @@ begin
       if (STIMULUS_ACCELERATOR_MATRIX_CONVOLUTION_CASE_1) then
 
         -------------------------------------------------------------------
-        MONITOR_CASE <= "STIMULUS_NTM_MATRIX_CONVOLUTION_CASE 1  ";
+        MONITOR_CASE <= "STIMULUS_ACCELERATOR_MATRIX_CONVOLUTION_CASE 1                        ";
         -------------------------------------------------------------------
 
         -- INITIAL CONDITIONS
@@ -1504,18 +1504,18 @@ begin
     if (STIMULUS_ACCELERATOR_MATRIX_VECTOR_CONVOLUTION_TEST) then
 
       -------------------------------------------------------------------
-      MONITOR_TEST <= "STIMULUS_NTM_MATRIX_VECTOR_CONVOLUT_TEST";
+      MONITOR_TEST <= "STIMULUS_ACCELERATOR_MATRIX_VECTOR_CONVOLUT_TEST                      ";
       -------------------------------------------------------------------
 
       -- DATA
-      MATRIX_VECTOR_CONVOLUTION_SIZE_A_I_IN <= THREE_CONTROL;
-      MATRIX_VECTOR_CONVOLUTION_SIZE_A_J_IN <= THREE_CONTROL;
-      MATRIX_VECTOR_CONVOLUTION_SIZE_B_IN   <= THREE_CONTROL;
+      MATRIX_VECTOR_CONVOLUTION_SIZE_A_I_IN <= FOUR_CONTROL;
+      MATRIX_VECTOR_CONVOLUTION_SIZE_A_J_IN <= FOUR_CONTROL;
+      MATRIX_VECTOR_CONVOLUTION_SIZE_B_IN   <= FOUR_CONTROL;
 
       if (STIMULUS_ACCELERATOR_MATRIX_VECTOR_CONVOLUTION_CASE_0) then
 
         -------------------------------------------------------------------
-        MONITOR_CASE <= "STIMULUS_NTM_MATRIX_VECTOR_CONVOL_CASE 0";
+        MONITOR_CASE <= "STIMULUS_ACCELERATOR_MATRIX_VECTOR_CONVOLUTION_CASE 0                 ";
         -------------------------------------------------------------------
 
         -- INITIAL CONDITIONS
@@ -1582,7 +1582,7 @@ begin
       if (STIMULUS_ACCELERATOR_MATRIX_VECTOR_CONVOLUTION_CASE_1) then
 
         -------------------------------------------------------------------
-        MONITOR_CASE <= "STIMULUS_NTM_MATRIX_VECTOR_CONVOL_CASE 1";
+        MONITOR_CASE <= "STIMULUS_ACCELERATOR_MATRIX_VECTOR_CONVOLUTION_CASE 1                 ";
         -------------------------------------------------------------------
 
         -- INITIAL CONDITIONS
@@ -1653,17 +1653,17 @@ begin
     if (STIMULUS_ACCELERATOR_MATRIX_INVERSE_TEST) then
 
       -------------------------------------------------------------------
-      MONITOR_TEST <= "STIMULUS_NTM_MATRIX_INVERSE_TEST        ";
+      MONITOR_TEST <= "STIMULUS_ACCELERATOR_MATRIX_INVERSE_TEST                              ";
       -------------------------------------------------------------------
 
       -- DATA
-      MATRIX_INVERSE_SIZE_I_IN <= THREE_CONTROL;
-      MATRIX_INVERSE_SIZE_J_IN <= THREE_CONTROL;
+      MATRIX_INVERSE_SIZE_I_IN <= FOUR_CONTROL;
+      MATRIX_INVERSE_SIZE_J_IN <= FOUR_CONTROL;
 
       if (STIMULUS_ACCELERATOR_MATRIX_INVERSE_CASE_0) then
 
         -------------------------------------------------------------------
-        MONITOR_CASE <= "STIMULUS_NTM_MATRIX_INVERSE_CASE 0      ";
+        MONITOR_CASE <= "STIMULUS_ACCELERATOR_MATRIX_INVERSE_CASE 0                            ";
         -------------------------------------------------------------------
 
         -- INITIAL CONDITIONS
@@ -1723,7 +1723,7 @@ begin
       if (STIMULUS_ACCELERATOR_MATRIX_INVERSE_CASE_1) then
 
         -------------------------------------------------------------------
-        MONITOR_CASE <= "STIMULUS_NTM_MATRIX_INVERSE_CASE 1      ";
+        MONITOR_CASE <= "STIMULUS_ACCELERATOR_MATRIX_INVERSE_CASE 1                            ";
         -------------------------------------------------------------------
 
         -- INITIAL CONDITIONS
@@ -1787,19 +1787,19 @@ begin
     if (STIMULUS_ACCELERATOR_MATRIX_MULTIPLICATION_TEST) then
 
       -------------------------------------------------------------------
-      MONITOR_TEST <= "STIMULUS_NTM_MATRIX_MULTIPLICATION_TEST ";
+      MONITOR_TEST <= "STIMULUS_ACCELERATOR_MATRIX_MULTIPLICATION_TEST                       ";
       -------------------------------------------------------------------
 
       -- DATA
-      MATRIX_MULTIPLICATION_LENGTH_IN <= THREE_CONTROL;
+      MATRIX_MULTIPLICATION_LENGTH_IN <= FOUR_CONTROL;
 
-      MATRIX_MULTIPLICATION_SIZE_I_IN <= THREE_CONTROL;
-      MATRIX_MULTIPLICATION_SIZE_J_IN <= THREE_CONTROL;
+      MATRIX_MULTIPLICATION_SIZE_I_IN <= FOUR_CONTROL;
+      MATRIX_MULTIPLICATION_SIZE_J_IN <= FOUR_CONTROL;
 
       if (STIMULUS_ACCELERATOR_MATRIX_MULTIPLICATION_CASE_0) then
 
         -------------------------------------------------------------------
-        MONITOR_CASE <= "STIMULUS_NTM_MATRIX_MULTIPLICATIO_CASE 0";
+        MONITOR_CASE <= "STIMULUS_ACCELERATOR_MATRIX_MULTIPLICATIO_CASE 0                      ";
         -------------------------------------------------------------------
 
         -- INITIAL CONDITIONS
@@ -1875,7 +1875,7 @@ begin
       if (STIMULUS_ACCELERATOR_MATRIX_MULTIPLICATION_CASE_1) then
 
         -------------------------------------------------------------------
-        MONITOR_CASE <= "STIMULUS_NTM_MATRIX_MULTIPLICATIO_CASE 1";
+        MONITOR_CASE <= "STIMULUS_ACCELERATOR_MATRIX_MULTIPLICATION_CASE 1                     ";
         -------------------------------------------------------------------
 
         -- INITIAL CONDITIONS
@@ -1955,19 +1955,19 @@ begin
     if (STIMULUS_ACCELERATOR_MATRIX_PRODUCT_TEST) then
 
       -------------------------------------------------------------------
-      MONITOR_TEST <= "STIMULUS_NTM_MATRIX_PRODUCT_TEST        ";
+      MONITOR_TEST <= "STIMULUS_ACCELERATOR_MATRIX_PRODUCT_TEST                              ";
       -------------------------------------------------------------------
 
       -- DATA
-      MATRIX_PRODUCT_SIZE_A_I_IN <= THREE_CONTROL;
-      MATRIX_PRODUCT_SIZE_A_J_IN <= THREE_CONTROL;
-      MATRIX_PRODUCT_SIZE_B_I_IN <= THREE_CONTROL;
-      MATRIX_PRODUCT_SIZE_B_J_IN <= THREE_CONTROL;
+      MATRIX_PRODUCT_SIZE_A_I_IN <= FOUR_CONTROL;
+      MATRIX_PRODUCT_SIZE_A_J_IN <= FOUR_CONTROL;
+      MATRIX_PRODUCT_SIZE_B_I_IN <= FOUR_CONTROL;
+      MATRIX_PRODUCT_SIZE_B_J_IN <= FOUR_CONTROL;
 
       if (STIMULUS_ACCELERATOR_MATRIX_PRODUCT_CASE_0) then
 
         -------------------------------------------------------------------
-        MONITOR_CASE <= "STIMULUS_NTM_MATRIX_PRODUCT_CASE 0      ";
+        MONITOR_CASE <= "STIMULUS_ACCELERATOR_MATRIX_PRODUCT_CASE 0                            ";
         -------------------------------------------------------------------
 
         -- INITIAL CONDITIONS
@@ -2038,7 +2038,7 @@ begin
       if (STIMULUS_ACCELERATOR_MATRIX_PRODUCT_CASE_1) then
 
         -------------------------------------------------------------------
-        MONITOR_CASE <= "STIMULUS_NTM_MATRIX_PRODUCT_CASE 1      ";
+        MONITOR_CASE <= "STIMULUS_ACCELERATOR_MATRIX_PRODUCT_CASE 1                            ";
         -------------------------------------------------------------------
 
         -- INITIAL CONDITIONS
@@ -2113,18 +2113,18 @@ begin
     if (STIMULUS_ACCELERATOR_MATRIX_VECTOR_PRODUCT_TEST) then
 
       -------------------------------------------------------------------
-      MONITOR_TEST <= "STIMULUS_NTM_MATRIX_VECTOR_PRODUCT_TEST ";
+      MONITOR_TEST <= "STIMULUS_ACCELERATOR_MATRIX_VECTOR_PRODUCT_TEST                       ";
       -------------------------------------------------------------------
 
       -- DATA
-      MATRIX_VECTOR_PRODUCT_SIZE_A_I_IN <= THREE_CONTROL;
-      MATRIX_VECTOR_PRODUCT_SIZE_A_J_IN <= THREE_CONTROL;
-      MATRIX_VECTOR_PRODUCT_SIZE_B_IN   <= THREE_CONTROL;
+      MATRIX_VECTOR_PRODUCT_SIZE_A_I_IN <= FOUR_CONTROL;
+      MATRIX_VECTOR_PRODUCT_SIZE_A_J_IN <= FOUR_CONTROL;
+      MATRIX_VECTOR_PRODUCT_SIZE_B_IN   <= FOUR_CONTROL;
 
       if (STIMULUS_ACCELERATOR_MATRIX_VECTOR_PRODUCT_CASE_0) then
 
         -------------------------------------------------------------------
-        MONITOR_CASE <= "STIMULUS_NTM_MATRIX_VECTOR_PRODUC_CASE 0";
+        MONITOR_CASE <= "STIMULUS_ACCELERATOR_MATRIX_VECTOR_PRODUCT_CASE 0                     ";
         -------------------------------------------------------------------
 
         -- INITIAL CONDITIONS
@@ -2191,7 +2191,7 @@ begin
       if (STIMULUS_ACCELERATOR_MATRIX_VECTOR_PRODUCT_CASE_1) then
 
         -------------------------------------------------------------------
-        MONITOR_CASE <= "STIMULUS_NTM_MATRIX_VECTOR_PRODUC_CASE 1";
+        MONITOR_CASE <= "STIMULUS_ACCELERATOR_MATRIX_VECTOR_PRODUCT_CASE 1                     ";
         -------------------------------------------------------------------
 
         -- INITIAL CONDITIONS
@@ -2262,19 +2262,19 @@ begin
     if (STIMULUS_ACCELERATOR_MATRIX_SUMMATION_TEST) then
 
       -------------------------------------------------------------------
-      MONITOR_TEST <= "STIMULUS_NTM_MATRIX_SUMMATION_TEST      ";
+      MONITOR_TEST <= "STIMULUS_ACCELERATOR_MATRIX_SUMMATION_TEST                            ";
       -------------------------------------------------------------------
 
       -- DATA
-      MATRIX_SUMMATION_LENGTH_IN <= THREE_CONTROL;
+      MATRIX_SUMMATION_LENGTH_IN <= FOUR_CONTROL;
 
-      MATRIX_SUMMATION_SIZE_I_IN <= THREE_CONTROL;
-      MATRIX_SUMMATION_SIZE_J_IN <= THREE_CONTROL;
+      MATRIX_SUMMATION_SIZE_I_IN <= FOUR_CONTROL;
+      MATRIX_SUMMATION_SIZE_J_IN <= FOUR_CONTROL;
 
       if (STIMULUS_ACCELERATOR_MATRIX_SUMMATION_CASE_0) then
 
         -------------------------------------------------------------------
-        MONITOR_CASE <= "STIMULUS_NTM_MATRIX_SUMMATION_CASE 0    ";
+        MONITOR_CASE <= "STIMULUS_ACCELERATOR_MATRIX_SUMMATION_CASE 0                          ";
         -------------------------------------------------------------------
 
         -- INITIAL CONDITIONS
@@ -2350,7 +2350,7 @@ begin
       if (STIMULUS_ACCELERATOR_MATRIX_SUMMATION_CASE_1) then
 
         -------------------------------------------------------------------
-        MONITOR_CASE <= "STIMULUS_NTM_MATRIX_SUMMATION_CASE 1    ";
+        MONITOR_CASE <= "STIMULUS_ACCELERATOR_MATRIX_SUMMATION_CASE 1                          ";
         -------------------------------------------------------------------
 
         -- INITIAL CONDITIONS
@@ -2430,17 +2430,17 @@ begin
     if (STIMULUS_ACCELERATOR_MATRIX_TRANSPOSE_TEST) then
 
       -------------------------------------------------------------------
-      MONITOR_TEST <= "STIMULUS_NTM_MATRIX_TRANSPOSE_TEST      ";
+      MONITOR_TEST <= "STIMULUS_ACCELERATOR_MATRIX_TRANSPOSE_TEST                            ";
       -------------------------------------------------------------------
 
       -- DATA
-      MATRIX_TRANSPOSE_SIZE_I_IN <= THREE_CONTROL;
-      MATRIX_TRANSPOSE_SIZE_J_IN <= THREE_CONTROL;
+      MATRIX_TRANSPOSE_SIZE_I_IN <= FOUR_CONTROL;
+      MATRIX_TRANSPOSE_SIZE_J_IN <= FOUR_CONTROL;
 
       if (STIMULUS_ACCELERATOR_MATRIX_TRANSPOSE_CASE_0) then
 
         -------------------------------------------------------------------
-        MONITOR_CASE <= "STIMULUS_NTM_MATRIX_TRANSPOSE_CASE 0    ";
+        MONITOR_CASE <= "STIMULUS_ACCELERATOR_MATRIX_TRANSPOSE_CASE 0                          ";
         -------------------------------------------------------------------
 
         -- INITIAL CONDITIONS
@@ -2500,7 +2500,7 @@ begin
       if (STIMULUS_ACCELERATOR_MATRIX_TRANSPOSE_CASE_1) then
 
         -------------------------------------------------------------------
-        MONITOR_CASE <= "STIMULUS_NTM_MATRIX_TRANSPOSE_CASE 1    ";
+        MONITOR_CASE <= "STIMULUS_ACCELERATOR_MATRIX_TRANSPOSE_CASE 1                          ";
         -------------------------------------------------------------------
 
         -- INITIAL CONDITIONS
@@ -2564,21 +2564,21 @@ begin
     if (STIMULUS_ACCELERATOR_TENSOR_CONVOLUTION_TEST) then
 
       -------------------------------------------------------------------
-      MONITOR_TEST <= "STIMULUS_NTM_TENSOR_CONVOLUTION_TEST    ";
+      MONITOR_TEST <= "STIMULUS_ACCELERATOR_TENSOR_CONVOLUTION_TEST                          ";
       -------------------------------------------------------------------
 
       -- DATA
-      TENSOR_CONVOLUTION_SIZE_A_I_IN <= THREE_CONTROL;
-      TENSOR_CONVOLUTION_SIZE_A_J_IN <= THREE_CONTROL;
-      TENSOR_CONVOLUTION_SIZE_A_K_IN <= THREE_CONTROL;
-      TENSOR_CONVOLUTION_SIZE_B_I_IN <= THREE_CONTROL;
-      TENSOR_CONVOLUTION_SIZE_B_J_IN <= THREE_CONTROL;
-      TENSOR_CONVOLUTION_SIZE_B_K_IN <= THREE_CONTROL;
+      TENSOR_CONVOLUTION_SIZE_A_I_IN <= FOUR_CONTROL;
+      TENSOR_CONVOLUTION_SIZE_A_J_IN <= FOUR_CONTROL;
+      TENSOR_CONVOLUTION_SIZE_A_K_IN <= FOUR_CONTROL;
+      TENSOR_CONVOLUTION_SIZE_B_I_IN <= FOUR_CONTROL;
+      TENSOR_CONVOLUTION_SIZE_B_J_IN <= FOUR_CONTROL;
+      TENSOR_CONVOLUTION_SIZE_B_K_IN <= FOUR_CONTROL;
 
       if (STIMULUS_ACCELERATOR_TENSOR_CONVOLUTION_CASE_0) then
 
         -------------------------------------------------------------------
-        MONITOR_CASE <= "STIMULUS_NTM_TENSOR_CONVOLUTION_CASE 0  ";
+        MONITOR_CASE <= "STIMULUS_ACCELERATOR_TENSOR_CONVOLUTION_CASE 0                        ";
         -------------------------------------------------------------------
 
         -- INITIAL CONDITIONS
@@ -2671,7 +2671,7 @@ begin
       if (STIMULUS_ACCELERATOR_TENSOR_CONVOLUTION_CASE_1) then
 
         -------------------------------------------------------------------
-        MONITOR_CASE <= "STIMULUS_NTM_TENSOR_CONVOLUTION_CASE 1  ";
+        MONITOR_CASE <= "STIMULUS_ACCELERATOR_TENSOR_CONVOLUTION_CASE 1                        ";
         -------------------------------------------------------------------
 
         -- INITIAL CONDITIONS
@@ -2768,20 +2768,20 @@ begin
     if (STIMULUS_ACCELERATOR_TENSOR_MATRIX_CONVOLUTION_TEST) then
 
       -------------------------------------------------------------------
-      MONITOR_TEST <= "STIMULUS_NTM_TENSOR_MATRIX_CONVOLUT_TEST";
+      MONITOR_TEST <= "STIMULUS_ACCELERATOR_TENSOR_MATRIX_CONVOLUT_TEST                      ";
       -------------------------------------------------------------------
 
       -- DATA
-      TENSOR_MATRIX_CONVOLUTION_SIZE_A_I_IN <= THREE_CONTROL;
-      TENSOR_MATRIX_CONVOLUTION_SIZE_A_J_IN <= THREE_CONTROL;
-      TENSOR_MATRIX_CONVOLUTION_SIZE_A_K_IN <= THREE_CONTROL;
-      TENSOR_MATRIX_CONVOLUTION_SIZE_B_I_IN <= THREE_CONTROL;
-      TENSOR_MATRIX_CONVOLUTION_SIZE_B_J_IN <= THREE_CONTROL;
+      TENSOR_MATRIX_CONVOLUTION_SIZE_A_I_IN <= FOUR_CONTROL;
+      TENSOR_MATRIX_CONVOLUTION_SIZE_A_J_IN <= FOUR_CONTROL;
+      TENSOR_MATRIX_CONVOLUTION_SIZE_A_K_IN <= FOUR_CONTROL;
+      TENSOR_MATRIX_CONVOLUTION_SIZE_B_I_IN <= FOUR_CONTROL;
+      TENSOR_MATRIX_CONVOLUTION_SIZE_B_J_IN <= FOUR_CONTROL;
 
       if (STIMULUS_ACCELERATOR_TENSOR_MATRIX_CONVOLUTION_CASE_0) then
 
         -------------------------------------------------------------------
-        MONITOR_CASE <= "STIMULUS_NTM_TENSOR_MATRIX_CONVOL_CASE 0";
+        MONITOR_CASE <= "STIMULUS_ACCELERATOR_TENSOR_MATRIX_CONVOLUTION_CASE 0                 ";
         -------------------------------------------------------------------
 
         -- INITIAL CONDITIONS
@@ -2869,7 +2869,7 @@ begin
       if (STIMULUS_ACCELERATOR_TENSOR_MATRIX_CONVOLUTION_CASE_1) then
 
         -------------------------------------------------------------------
-        MONITOR_CASE <= "STIMULUS_NTM_TENSOR_MATRIX_CONVOL_CASE 1";
+        MONITOR_CASE <= "STIMULUS_ACCELERATOR_TENSOR_MATRIX_CONVOLUTION_CASE 1                 ";
         -------------------------------------------------------------------
 
         -- INITIAL CONDITIONS
@@ -2961,18 +2961,18 @@ begin
     if (STIMULUS_ACCELERATOR_TENSOR_INVERSE_TEST) then
 
       -------------------------------------------------------------------
-      MONITOR_TEST <= "STIMULUS_NTM_TENSOR_INVERSE_TEST        ";
+      MONITOR_TEST <= "STIMULUS_ACCELERATOR_TENSOR_INVERSE_TEST                              ";
       -------------------------------------------------------------------
 
       -- DATA
-      TENSOR_INVERSE_SIZE_I_IN <= THREE_CONTROL;
-      TENSOR_INVERSE_SIZE_J_IN <= THREE_CONTROL;
-      TENSOR_INVERSE_SIZE_K_IN <= THREE_CONTROL;
+      TENSOR_INVERSE_SIZE_I_IN <= FOUR_CONTROL;
+      TENSOR_INVERSE_SIZE_J_IN <= FOUR_CONTROL;
+      TENSOR_INVERSE_SIZE_K_IN <= FOUR_CONTROL;
 
       if (STIMULUS_ACCELERATOR_TENSOR_INVERSE_CASE_0) then
 
         -------------------------------------------------------------------
-        MONITOR_CASE <= "STIMULUS_NTM_TENSOR_INVERSE_CASE 0      ";
+        MONITOR_CASE <= "STIMULUS_ACCELERATOR_TENSOR_INVERSE_CASE 0                            ";
         -------------------------------------------------------------------
 
         -- INITIAL CONDITIONS
@@ -3048,7 +3048,7 @@ begin
       if (STIMULUS_ACCELERATOR_TENSOR_INVERSE_CASE_1) then
 
         -------------------------------------------------------------------
-        MONITOR_CASE <= "STIMULUS_NTM_TENSOR_INVERSE_CASE 1      ";
+        MONITOR_CASE <= "STIMULUS_ACCELERATOR_TENSOR_INVERSE_CASE 1                            ";
         -------------------------------------------------------------------
 
         -- INITIAL CONDITIONS
@@ -3128,21 +3128,21 @@ begin
     if (STIMULUS_ACCELERATOR_TENSOR_PRODUCT_TEST) then
 
       -------------------------------------------------------------------
-      MONITOR_TEST <= "STIMULUS_NTM_TENSOR_PRODUCT_TEST        ";
+      MONITOR_TEST <= "STIMULUS_ACCELERATOR_TENSOR_PRODUCT_TEST                              ";
       -------------------------------------------------------------------
 
       -- DATA
-      TENSOR_PRODUCT_SIZE_A_I_IN <= THREE_CONTROL;
-      TENSOR_PRODUCT_SIZE_A_J_IN <= THREE_CONTROL;
-      TENSOR_PRODUCT_SIZE_A_K_IN <= THREE_CONTROL;
-      TENSOR_PRODUCT_SIZE_B_I_IN <= THREE_CONTROL;
-      TENSOR_PRODUCT_SIZE_B_J_IN <= THREE_CONTROL;
-      TENSOR_PRODUCT_SIZE_B_K_IN <= THREE_CONTROL;
+      TENSOR_PRODUCT_SIZE_A_I_IN <= FOUR_CONTROL;
+      TENSOR_PRODUCT_SIZE_A_J_IN <= FOUR_CONTROL;
+      TENSOR_PRODUCT_SIZE_A_K_IN <= FOUR_CONTROL;
+      TENSOR_PRODUCT_SIZE_B_I_IN <= FOUR_CONTROL;
+      TENSOR_PRODUCT_SIZE_B_J_IN <= FOUR_CONTROL;
+      TENSOR_PRODUCT_SIZE_B_K_IN <= FOUR_CONTROL;
 
       if (STIMULUS_ACCELERATOR_TENSOR_PRODUCT_CASE_0) then
 
         -------------------------------------------------------------------
-        MONITOR_CASE <= "STIMULUS_NTM_TENSOR_PRODUCT_CASE 0      ";
+        MONITOR_CASE <= "STIMULUS_ACCELERATOR_TENSOR_PRODUCT_CASE 0                            ";
         -------------------------------------------------------------------
 
         -- INITIAL CONDITIONS
@@ -3235,7 +3235,7 @@ begin
       if (STIMULUS_ACCELERATOR_TENSOR_PRODUCT_CASE_1) then
 
         -------------------------------------------------------------------
-        MONITOR_CASE <= "STIMULUS_NTM_TENSOR_PRODUCT_CASE 1      ";
+        MONITOR_CASE <= "STIMULUS_ACCELERATOR_TENSOR_PRODUCT_CASE 1                            ";
         -------------------------------------------------------------------
 
         -- INITIAL CONDITIONS
@@ -3332,20 +3332,20 @@ begin
     if (STIMULUS_ACCELERATOR_TENSOR_MATRIX_PRODUCT_TEST) then
 
       -------------------------------------------------------------------
-      MONITOR_TEST <= "STIMULUS_NTM_TENSOR_MATRIX_PRODUCT_TEST ";
+      MONITOR_TEST <= "STIMULUS_ACCELERATOR_TENSOR_MATRIX_PRODUCT_TEST                       ";
       -------------------------------------------------------------------
 
       -- DATA
-      TENSOR_MATRIX_PRODUCT_SIZE_A_I_IN <= THREE_CONTROL;
-      TENSOR_MATRIX_PRODUCT_SIZE_A_J_IN <= THREE_CONTROL;
-      TENSOR_MATRIX_PRODUCT_SIZE_A_K_IN <= THREE_CONTROL;
-      TENSOR_MATRIX_PRODUCT_SIZE_B_I_IN <= THREE_CONTROL;
-      TENSOR_MATRIX_PRODUCT_SIZE_B_J_IN <= THREE_CONTROL;
+      TENSOR_MATRIX_PRODUCT_SIZE_A_I_IN <= FOUR_CONTROL;
+      TENSOR_MATRIX_PRODUCT_SIZE_A_J_IN <= FOUR_CONTROL;
+      TENSOR_MATRIX_PRODUCT_SIZE_A_K_IN <= FOUR_CONTROL;
+      TENSOR_MATRIX_PRODUCT_SIZE_B_I_IN <= FOUR_CONTROL;
+      TENSOR_MATRIX_PRODUCT_SIZE_B_J_IN <= FOUR_CONTROL;
 
       if (STIMULUS_ACCELERATOR_TENSOR_MATRIX_PRODUCT_CASE_0) then
 
         -------------------------------------------------------------------
-        MONITOR_CASE <= "STIMULUS_NTM_TENSOR_MATRIX_PRODUC_CASE 0";
+        MONITOR_CASE <= "STIMULUS_ACCELERATOR_TENSOR_MATRIX_PRODUCT_CASE 0                     ";
         -------------------------------------------------------------------
 
         -- INITIAL CONDITIONS
@@ -3433,7 +3433,7 @@ begin
       if (STIMULUS_ACCELERATOR_TENSOR_MATRIX_PRODUCT_CASE_1) then
 
         -------------------------------------------------------------------
-        MONITOR_CASE <= "STIMULUS_NTM_TENSOR_MATRIX_PRODUC_CASE 1";
+        MONITOR_CASE <= "STIMULUS_ACCELERATOR_TENSOR_MATRIX_PRODUCT_CASE 1                     ";
         -------------------------------------------------------------------
 
         -- INITIAL CONDITIONS
@@ -3525,18 +3525,18 @@ begin
     if (STIMULUS_ACCELERATOR_TENSOR_TRANSPOSE_TEST) then
 
       -------------------------------------------------------------------
-      MONITOR_TEST <= "STIMULUS_NTM_TENSOR_TRANSPOSE_TEST      ";
+      MONITOR_TEST <= "STIMULUS_ACCELERATOR_TENSOR_TRANSPOSE_TEST                            ";
       -------------------------------------------------------------------
 
       -- DATA
-      TENSOR_TRANSPOSE_SIZE_I_IN <= THREE_CONTROL;
-      TENSOR_TRANSPOSE_SIZE_J_IN <= THREE_CONTROL;
-      TENSOR_TRANSPOSE_SIZE_K_IN <= THREE_CONTROL;
+      TENSOR_TRANSPOSE_SIZE_I_IN <= FOUR_CONTROL;
+      TENSOR_TRANSPOSE_SIZE_J_IN <= FOUR_CONTROL;
+      TENSOR_TRANSPOSE_SIZE_K_IN <= FOUR_CONTROL;
 
       if (STIMULUS_ACCELERATOR_TENSOR_TRANSPOSE_CASE_0) then
 
         -------------------------------------------------------------------
-        MONITOR_CASE <= "STIMULUS_NTM_TENSOR_TRANSPOSE_CASE 0    ";
+        MONITOR_CASE <= "STIMULUS_ACCELERATOR_TENSOR_TRANSPOSE_CASE 0                          ";
         -------------------------------------------------------------------
 
         -- INITIAL CONDITIONS
@@ -3612,7 +3612,7 @@ begin
       if (STIMULUS_ACCELERATOR_TENSOR_TRANSPOSE_CASE_1) then
 
         -------------------------------------------------------------------
-        MONITOR_CASE <= "STIMULUS_NTM_TENSOR_TRANSPOSE_CASE 1    ";
+        MONITOR_CASE <= "STIMULUS_ACCELERATOR_TENSOR_TRANSPOSE_CASE 1                          ";
         -------------------------------------------------------------------
 
         -- INITIAL CONDITIONS

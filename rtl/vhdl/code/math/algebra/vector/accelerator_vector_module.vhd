@@ -42,13 +42,13 @@ library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
 
-use work.accelerator_arithmetic_pkg.all;
-use work.accelerator_math_pkg.all;
+use work.accelerator_arithmetic_vhdl_pkg.all;
+use work.accelerator_math_vhdl_pkg.all;
 
 entity accelerator_vector_module is
   generic (
     DATA_SIZE    : integer := 64;
-    CONTROL_SIZE : integer := 64
+    CONTROL_SIZE : integer := 4
     );
   port (
     -- GLOBAL
@@ -185,9 +185,6 @@ begin
             -- FSM Control
             module_ctrl_fsm_int <= INPUT_STATE;
           end if;
-
-          -- Data Outputs
-          DATA_OUT <= vector_int(to_integer(unsigned(index_loop)));
 
         when CLEAN_STATE =>             -- STEP 5
 

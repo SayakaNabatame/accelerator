@@ -40,14 +40,14 @@ library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
 
-use work.accelerator_arithmetic_pkg.all;
+use work.accelerator_arithmetic_vhdl_pkg.all;
 use work.accelerator_float_pkg.all;
 
 entity accelerator_float_testbench is
   generic (
     -- SYSTEM-SIZE
     DATA_SIZE    : integer := 64;
-    CONTROL_SIZE : integer := 64;
+    CONTROL_SIZE : integer := 4;
 
     X : std_logic_vector(DATA_SIZE-1 downto 0) := std_logic_vector(to_unsigned(64, DATA_SIZE));  -- x in 0 to X-1
     Y : std_logic_vector(DATA_SIZE-1 downto 0) := std_logic_vector(to_unsigned(64, DATA_SIZE));  -- y in 0 to Y-1
@@ -68,6 +68,62 @@ entity accelerator_float_testbench is
     ENABLE_ACCELERATOR_SCALAR_FLOAT_ADDER_CASE_1      : boolean := false;
     ENABLE_ACCELERATOR_SCALAR_FLOAT_MULTIPLIER_CASE_1 : boolean := false;
     ENABLE_ACCELERATOR_SCALAR_FLOAT_DIVIDER_CASE_1    : boolean := false;
+
+    ENABLE_ACCELERATOR_SCALAR_FLOAT_ADDER_CASE_2      : boolean := false;
+    ENABLE_ACCELERATOR_SCALAR_FLOAT_MULTIPLIER_CASE_2 : boolean := false;
+    ENABLE_ACCELERATOR_SCALAR_FLOAT_DIVIDER_CASE_2    : boolean := false;
+
+    ENABLE_ACCELERATOR_SCALAR_FLOAT_ADDER_CASE_3      : boolean := false;
+    ENABLE_ACCELERATOR_SCALAR_FLOAT_MULTIPLIER_CASE_3 : boolean := false;
+    ENABLE_ACCELERATOR_SCALAR_FLOAT_DIVIDER_CASE_3    : boolean := false;
+
+    ENABLE_ACCELERATOR_SCALAR_FLOAT_ADDER_CASE_4      : boolean := false;
+    ENABLE_ACCELERATOR_SCALAR_FLOAT_MULTIPLIER_CASE_4 : boolean := false;
+    ENABLE_ACCELERATOR_SCALAR_FLOAT_DIVIDER_CASE_4    : boolean := false;
+
+    ENABLE_ACCELERATOR_SCALAR_FLOAT_ADDER_CASE_5      : boolean := false;
+    ENABLE_ACCELERATOR_SCALAR_FLOAT_MULTIPLIER_CASE_5 : boolean := false;
+    ENABLE_ACCELERATOR_SCALAR_FLOAT_DIVIDER_CASE_5    : boolean := false;
+
+    ENABLE_ACCELERATOR_SCALAR_FLOAT_ADDER_CASE_6      : boolean := false;
+    ENABLE_ACCELERATOR_SCALAR_FLOAT_MULTIPLIER_CASE_6 : boolean := false;
+    ENABLE_ACCELERATOR_SCALAR_FLOAT_DIVIDER_CASE_6    : boolean := false;
+
+    ENABLE_ACCELERATOR_SCALAR_FLOAT_ADDER_CASE_7      : boolean := false;
+    ENABLE_ACCELERATOR_SCALAR_FLOAT_MULTIPLIER_CASE_7 : boolean := false;
+    ENABLE_ACCELERATOR_SCALAR_FLOAT_DIVIDER_CASE_7    : boolean := false;
+
+    ENABLE_ACCELERATOR_SCALAR_FLOAT_ADDER_CASE_8      : boolean := false;
+    ENABLE_ACCELERATOR_SCALAR_FLOAT_MULTIPLIER_CASE_8 : boolean := false;
+    ENABLE_ACCELERATOR_SCALAR_FLOAT_DIVIDER_CASE_8    : boolean := false;
+
+    ENABLE_ACCELERATOR_SCALAR_FLOAT_ADDER_CASE_9      : boolean := false;
+    ENABLE_ACCELERATOR_SCALAR_FLOAT_MULTIPLIER_CASE_9 : boolean := false;
+    ENABLE_ACCELERATOR_SCALAR_FLOAT_DIVIDER_CASE_9    : boolean := false;
+
+    ENABLE_ACCELERATOR_SCALAR_FLOAT_ADDER_CASE_10      : boolean := false;
+    ENABLE_ACCELERATOR_SCALAR_FLOAT_MULTIPLIER_CASE_10 : boolean := false;
+    ENABLE_ACCELERATOR_SCALAR_FLOAT_DIVIDER_CASE_10    : boolean := false;
+
+    ENABLE_ACCELERATOR_SCALAR_FLOAT_ADDER_CASE_11      : boolean := false;
+    ENABLE_ACCELERATOR_SCALAR_FLOAT_MULTIPLIER_CASE_11 : boolean := false;
+    ENABLE_ACCELERATOR_SCALAR_FLOAT_DIVIDER_CASE_11    : boolean := false;
+
+    ENABLE_ACCELERATOR_SCALAR_FLOAT_ADDER_CASE_12      : boolean := false;
+    ENABLE_ACCELERATOR_SCALAR_FLOAT_MULTIPLIER_CASE_12 : boolean := false;
+    ENABLE_ACCELERATOR_SCALAR_FLOAT_DIVIDER_CASE_12    : boolean := false;
+
+    ENABLE_ACCELERATOR_SCALAR_FLOAT_ADDER_CASE_13      : boolean := false;
+    ENABLE_ACCELERATOR_SCALAR_FLOAT_MULTIPLIER_CASE_13 : boolean := false;
+    ENABLE_ACCELERATOR_SCALAR_FLOAT_DIVIDER_CASE_13    : boolean := false;
+
+    ENABLE_ACCELERATOR_SCALAR_FLOAT_ADDER_CASE_14      : boolean := false;
+    ENABLE_ACCELERATOR_SCALAR_FLOAT_MULTIPLIER_CASE_14 : boolean := false;
+    ENABLE_ACCELERATOR_SCALAR_FLOAT_DIVIDER_CASE_14    : boolean := false;
+
+    ENABLE_ACCELERATOR_SCALAR_FLOAT_ADDER_CASE_15      : boolean := false;
+    ENABLE_ACCELERATOR_SCALAR_FLOAT_MULTIPLIER_CASE_15 : boolean := false;
+    ENABLE_ACCELERATOR_SCALAR_FLOAT_DIVIDER_CASE_15    : boolean := false;
 
     -- VECTOR-FUNCTIONALITY
     ENABLE_ACCELERATOR_VECTOR_FLOAT_ADDER_TEST      : boolean := false;

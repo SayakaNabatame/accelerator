@@ -1,11 +1,4 @@
 code
-├── architecture
-│   ├── mpsoc
-│   │   └── accelerator_mpsoc.sv
-│   ├── pu
-│   │   └── accelerator_pu.sv
-│   └── soc
-│       └── accelerator_soc.sv
 ├── arithmetic
 │   ├── definition
 │   │   ├── matrix
@@ -144,11 +137,13 @@ code
 │           ├── accelerator_vector_sinh_function.sv
 │           └── accelerator_vector_tanh_function.sv
 └── pkg
-    ├── accelerator_arithmetic_pkg.sv
-    ├── accelerator_core_pkg.sv
-    ├── accelerator_fnn_controller_pkg.sv
-    ├── accelerator_lstm_controller_pkg.sv
-    ├── accelerator_math_pkg.sv
-    └── accelerator_state_pkg.sv
+    ├── accelerator_arithmetic_verilog_pkg.sv
+    ├── accelerator_core_verilog_pkg.sv
+    ├── accelerator_fnn_controller_verilog_pkg.sv
+    ├── accelerator_linear_controller_verilog_pkg.sv
+    ├── accelerator_lstm_controller_verilog_pkg.sv
+    ├── accelerator_math_verilog_pkg.sv
+    ├── accelerator_state_verilog_pkg.sv
+    └── accelerator_transformer_controller_verilog_pkg.sv
 
-43 directories, 108 files
+39 directories, 107 files

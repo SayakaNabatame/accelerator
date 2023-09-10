@@ -1,11 +1,4 @@
 code
-├── architecture
-│   ├── mpsoc
-│   │   └── accelerator_mpsoc.vhd
-│   ├── pu
-│   │   └── accelerator_pu.vhd
-│   └── soc
-│       └── accelerator_soc.vhd
 ├── arithmetic
 │   ├── definition
 │   │   ├── matrix
@@ -144,11 +137,13 @@ code
 │           ├── accelerator_vector_sinh_function.vhd
 │           └── accelerator_vector_tanh_function.vhd
 └── pkg
-    ├── accelerator_arithmetic_pkg.vhd
-    ├── accelerator_core_pkg.vhd
-    ├── accelerator_fnn_controller_pkg.vhd
-    ├── accelerator_lstm_controller_pkg.vhd
-    ├── accelerator_math_pkg.vhd
-    └── accelerator_state_pkg.vhd
+    ├── accelerator_arithmetic_vhdl_pkg.vhd
+    ├── accelerator_core_vhdl_pkg.vhd
+    ├── accelerator_fnn_controller_vhdl_pkg.vhd
+    ├── accelerator_linear_controller_vhdl_pkg.vhd
+    ├── accelerator_lstm_controller_vhdl_pkg.vhd
+    ├── accelerator_math_vhdl_pkg.vhd
+    ├── accelerator_state_vhdl_pkg.vhd
+    └── accelerator_transformer_controller_vhdl_pkg.vhd
 
-43 directories, 108 files
+39 directories, 107 files

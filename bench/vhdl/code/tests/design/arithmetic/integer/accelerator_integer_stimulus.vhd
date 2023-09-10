@@ -42,14 +42,14 @@ library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
 
-use work.accelerator_arithmetic_pkg.all;
+use work.accelerator_arithmetic_vhdl_pkg.all;
 use work.accelerator_integer_pkg.all;
 
 entity accelerator_integer_stimulus is
   generic (
     -- SYSTEM-SIZE
     DATA_SIZE    : integer := 64;
-    CONTROL_SIZE : integer := 64;
+    CONTROL_SIZE : integer := 4;
 
     X : std_logic_vector(DATA_SIZE-1 downto 0) := std_logic_vector(to_unsigned(64, DATA_SIZE));  -- x in 0 to X-1
     Y : std_logic_vector(DATA_SIZE-1 downto 0) := std_logic_vector(to_unsigned(64, DATA_SIZE));  -- y in 0 to Y-1
@@ -434,7 +434,7 @@ begin
     if (STIMULUS_ACCELERATOR_SCALAR_INTEGER_ADDER_TEST) then
 
       -------------------------------------------------------------------
-      MONITOR_TEST <= "STIMULUS_NTM_SCALAR_ADDER_TEST          ";
+      MONITOR_TEST <= "STIMULUS_ACCELERATOR_SCALAR_INTEGER_ADDER_TEST                        ";
       -------------------------------------------------------------------
 
       -- CONTROL
@@ -443,21 +443,81 @@ begin
       if (STIMULUS_ACCELERATOR_SCALAR_INTEGER_ADDER_CASE_0) then
 
         -------------------------------------------------------------------
-        MONITOR_CASE <= "STIMULUS_NTM_SCALAR_ADDER_CASE 0        ";
+        MONITOR_CASE <= "STIMULUS_ACCELERATOR_SCALAR_INTEGER_ADDER_CASE 0                      ";
         -------------------------------------------------------------------
 
-        SCALAR_INTEGER_ADDER_DATA_A_IN <= SCALAR_SAMPLE_A;
-        SCALAR_INTEGER_ADDER_DATA_B_IN <= SCALAR_SAMPLE_B;
+        SCALAR_INTEGER_ADDER_DATA_A_IN <= MAX_POSITIVE;
+        SCALAR_INTEGER_ADDER_DATA_B_IN <= MAX_POSITIVE;
       end if;
 
       if (STIMULUS_ACCELERATOR_SCALAR_INTEGER_ADDER_CASE_1) then
 
         -------------------------------------------------------------------
-        MONITOR_CASE <= "STIMULUS_NTM_SCALAR_ADDER_CASE 1        ";
+        MONITOR_CASE <= "STIMULUS_ACCELERATOR_SCALAR_INTEGER_ADDER_CASE 1                      ";
         -------------------------------------------------------------------
 
-        SCALAR_INTEGER_ADDER_DATA_A_IN <= SCALAR_SAMPLE_B;
-        SCALAR_INTEGER_ADDER_DATA_B_IN <= SCALAR_SAMPLE_A;
+        SCALAR_INTEGER_ADDER_DATA_A_IN <= MAX_POSITIVE;
+        SCALAR_INTEGER_ADDER_DATA_B_IN <= MIN_NEGATIVE;
+      end if;
+
+      if (STIMULUS_ACCELERATOR_SCALAR_INTEGER_ADDER_CASE_2) then
+
+        -------------------------------------------------------------------
+        MONITOR_CASE <= "STIMULUS_ACCELERATOR_SCALAR_INTEGER_ADDER_CASE 2                      ";
+        -------------------------------------------------------------------
+
+        SCALAR_INTEGER_ADDER_DATA_A_IN <= MIN_NEGATIVE;
+        SCALAR_INTEGER_ADDER_DATA_B_IN <= MAX_POSITIVE;
+      end if;
+
+      if (STIMULUS_ACCELERATOR_SCALAR_INTEGER_ADDER_CASE_3) then
+
+        -------------------------------------------------------------------
+        MONITOR_CASE <= "STIMULUS_ACCELERATOR_SCALAR_INTEGER_ADDER_CASE 3                      ";
+        -------------------------------------------------------------------
+
+        SCALAR_INTEGER_ADDER_DATA_A_IN <= MIN_NEGATIVE;
+        SCALAR_INTEGER_ADDER_DATA_B_IN <= MIN_NEGATIVE;
+      end if;
+
+      if (STIMULUS_ACCELERATOR_SCALAR_INTEGER_ADDER_CASE_4) then
+
+        -------------------------------------------------------------------
+        MONITOR_CASE <= "STIMULUS_ACCELERATOR_SCALAR_INTEGER_ADDER_CASE 4                      ";
+        -------------------------------------------------------------------
+
+        SCALAR_INTEGER_ADDER_DATA_A_IN <= INT_P_NINE;
+        SCALAR_INTEGER_ADDER_DATA_B_IN <= INT_P_ONE;
+      end if;
+
+      if (STIMULUS_ACCELERATOR_SCALAR_INTEGER_ADDER_CASE_5) then
+
+        -------------------------------------------------------------------
+        MONITOR_CASE <= "STIMULUS_ACCELERATOR_SCALAR_INTEGER_ADDER_CASE 5                      ";
+        -------------------------------------------------------------------
+
+        SCALAR_INTEGER_ADDER_DATA_A_IN <= INT_P_TWO;
+        SCALAR_INTEGER_ADDER_DATA_B_IN <= INT_N_EIGHT;
+      end if;
+
+      if (STIMULUS_ACCELERATOR_SCALAR_INTEGER_ADDER_CASE_6) then
+
+        -------------------------------------------------------------------
+        MONITOR_CASE <= "STIMULUS_ACCELERATOR_SCALAR_INTEGER_ADDER_CASE 6                      ";
+        -------------------------------------------------------------------
+
+        SCALAR_INTEGER_ADDER_DATA_A_IN <= INT_N_SEVEN;
+        SCALAR_INTEGER_ADDER_DATA_B_IN <= INT_P_THREE;
+      end if;
+
+      if (STIMULUS_ACCELERATOR_SCALAR_INTEGER_ADDER_CASE_7) then
+
+        -------------------------------------------------------------------
+        MONITOR_CASE <= "STIMULUS_ACCELERATOR_SCALAR_INTEGER_ADDER_CASE 7                      ";
+        -------------------------------------------------------------------
+
+        SCALAR_INTEGER_ADDER_DATA_A_IN <= INT_N_FOUR;
+        SCALAR_INTEGER_ADDER_DATA_B_IN <= INT_N_SIX;
       end if;
 
       wait for WORKING;
@@ -467,27 +527,87 @@ begin
     if (STIMULUS_ACCELERATOR_SCALAR_INTEGER_MULTIPLIER_TEST) then
 
       -------------------------------------------------------------------
-      MONITOR_TEST <= "STIMULUS_NTM_SCALAR_MULTIPLIER_TEST     ";
+      MONITOR_TEST <= "STIMULUS_ACCELERATOR_SCALAR_INTEGER_MULTIPLIER_TEST                   ";
       -------------------------------------------------------------------
 
       if (STIMULUS_ACCELERATOR_SCALAR_INTEGER_MULTIPLIER_CASE_0) then
 
         -------------------------------------------------------------------
-        MONITOR_CASE <= "STIMULUS_NTM_SCALAR_MULTIPLIER_CASE 0   ";
+        MONITOR_CASE <= "STIMULUS_ACCELERATOR_SCALAR_INTEGER_MULTIPLIER_CASE 0                 ";
         -------------------------------------------------------------------
 
-        SCALAR_INTEGER_MULTIPLIER_DATA_A_IN <= SCALAR_SAMPLE_A;
-        SCALAR_INTEGER_MULTIPLIER_DATA_B_IN <= SCALAR_SAMPLE_B;
+        SCALAR_INTEGER_MULTIPLIER_DATA_A_IN <= MAX_POSITIVE;
+        SCALAR_INTEGER_MULTIPLIER_DATA_B_IN <= MAX_POSITIVE;
       end if;
 
       if (STIMULUS_ACCELERATOR_SCALAR_INTEGER_MULTIPLIER_CASE_1) then
 
         -------------------------------------------------------------------
-        MONITOR_CASE <= "STIMULUS_NTM_SCALAR_MULTIPLIER_CASE 1   ";
+        MONITOR_CASE <= "STIMULUS_ACCELERATOR_SCALAR_INTEGER_MULTIPLIER_CASE 1                 ";
         -------------------------------------------------------------------
 
-        SCALAR_INTEGER_MULTIPLIER_DATA_A_IN <= SCALAR_SAMPLE_B;
-        SCALAR_INTEGER_MULTIPLIER_DATA_B_IN <= SCALAR_SAMPLE_A;
+        SCALAR_INTEGER_MULTIPLIER_DATA_A_IN <= MAX_POSITIVE;
+        SCALAR_INTEGER_MULTIPLIER_DATA_B_IN <= MIN_NEGATIVE;
+      end if;
+
+      if (STIMULUS_ACCELERATOR_SCALAR_INTEGER_MULTIPLIER_CASE_2) then
+
+        -------------------------------------------------------------------
+        MONITOR_CASE <= "STIMULUS_ACCELERATOR_SCALAR_INTEGER_MULTIPLIER_CASE 2                 ";
+        -------------------------------------------------------------------
+
+        SCALAR_INTEGER_MULTIPLIER_DATA_A_IN <= MIN_NEGATIVE;
+        SCALAR_INTEGER_MULTIPLIER_DATA_B_IN <= MAX_POSITIVE;
+      end if;
+
+      if (STIMULUS_ACCELERATOR_SCALAR_INTEGER_MULTIPLIER_CASE_3) then
+
+        -------------------------------------------------------------------
+        MONITOR_CASE <= "STIMULUS_ACCELERATOR_SCALAR_INTEGER_MULTIPLIER_CASE 3                 ";
+        -------------------------------------------------------------------
+
+        SCALAR_INTEGER_MULTIPLIER_DATA_A_IN <= MIN_NEGATIVE;
+        SCALAR_INTEGER_MULTIPLIER_DATA_B_IN <= MIN_NEGATIVE;
+      end if;
+
+      if (STIMULUS_ACCELERATOR_SCALAR_INTEGER_MULTIPLIER_CASE_4) then
+
+        -------------------------------------------------------------------
+        MONITOR_CASE <= "STIMULUS_ACCELERATOR_SCALAR_INTEGER_MULTIPLIER_CASE 4                 ";
+        -------------------------------------------------------------------
+
+        SCALAR_INTEGER_MULTIPLIER_DATA_A_IN <= INT_P_NINE;
+        SCALAR_INTEGER_MULTIPLIER_DATA_B_IN <= INT_P_ONE;
+      end if;
+
+      if (STIMULUS_ACCELERATOR_SCALAR_INTEGER_MULTIPLIER_CASE_5) then
+
+        -------------------------------------------------------------------
+        MONITOR_CASE <= "STIMULUS_ACCELERATOR_SCALAR_INTEGER_MULTIPLIER_CASE 5                 ";
+        -------------------------------------------------------------------
+
+        SCALAR_INTEGER_MULTIPLIER_DATA_A_IN <= INT_P_TWO;
+        SCALAR_INTEGER_MULTIPLIER_DATA_B_IN <= INT_N_EIGHT;
+      end if;
+
+      if (STIMULUS_ACCELERATOR_SCALAR_INTEGER_MULTIPLIER_CASE_6) then
+
+        -------------------------------------------------------------------
+        MONITOR_CASE <= "STIMULUS_ACCELERATOR_SCALAR_INTEGER_MULTIPLIER_CASE 6                 ";
+        -------------------------------------------------------------------
+
+        SCALAR_INTEGER_MULTIPLIER_DATA_A_IN <= INT_N_SEVEN;
+        SCALAR_INTEGER_MULTIPLIER_DATA_B_IN <= INT_P_THREE;
+      end if;
+
+      if (STIMULUS_ACCELERATOR_SCALAR_INTEGER_MULTIPLIER_CASE_7) then
+
+        -------------------------------------------------------------------
+        MONITOR_CASE <= "STIMULUS_ACCELERATOR_SCALAR_INTEGER_MULTIPLIER_CASE 7                 ";
+        -------------------------------------------------------------------
+
+        SCALAR_INTEGER_MULTIPLIER_DATA_A_IN <= INT_N_FOUR;
+        SCALAR_INTEGER_MULTIPLIER_DATA_B_IN <= INT_N_SIX;
       end if;
 
       wait for WORKING;
@@ -497,27 +617,87 @@ begin
     if (STIMULUS_ACCELERATOR_SCALAR_INTEGER_DIVIDER_TEST) then
 
       -------------------------------------------------------------------
-      MONITOR_TEST <= "STIMULUS_NTM_SCALAR_DIVIDER_TEST        ";
+      MONITOR_TEST <= "STIMULUS_ACCELERATOR_SCALAR_INTEGER_DIVIDER_TEST                      ";
       -------------------------------------------------------------------
 
       if (STIMULUS_ACCELERATOR_SCALAR_INTEGER_DIVIDER_CASE_0) then
 
         -------------------------------------------------------------------
-        MONITOR_CASE <= "STIMULUS_NTM_SCALAR_DIVIDER_CASE 0      ";
+        MONITOR_CASE <= "STIMULUS_ACCELERATOR_SCALAR_INTEGER_DIVIDER_CASE 0                    ";
         -------------------------------------------------------------------
 
-        SCALAR_INTEGER_DIVIDER_DATA_A_IN <= SCALAR_SAMPLE_A;
-        SCALAR_INTEGER_DIVIDER_DATA_B_IN <= SCALAR_SAMPLE_B;
+        SCALAR_INTEGER_DIVIDER_DATA_A_IN <= MAX_POSITIVE;
+        SCALAR_INTEGER_DIVIDER_DATA_B_IN <= MAX_POSITIVE;
       end if;
 
       if (STIMULUS_ACCELERATOR_SCALAR_INTEGER_DIVIDER_CASE_1) then
 
         -------------------------------------------------------------------
-        MONITOR_CASE <= "STIMULUS_NTM_SCALAR_DIVIDER_CASE 1      ";
+        MONITOR_CASE <= "STIMULUS_ACCELERATOR_SCALAR_INTEGER_DIVIDER_CASE 1                    ";
         -------------------------------------------------------------------
 
-        SCALAR_INTEGER_DIVIDER_DATA_A_IN <= SCALAR_SAMPLE_B;
-        SCALAR_INTEGER_DIVIDER_DATA_B_IN <= SCALAR_SAMPLE_A;
+        SCALAR_INTEGER_DIVIDER_DATA_A_IN <= MAX_POSITIVE;
+        SCALAR_INTEGER_DIVIDER_DATA_B_IN <= MIN_NEGATIVE;
+      end if;
+
+      if (STIMULUS_ACCELERATOR_SCALAR_INTEGER_DIVIDER_CASE_2) then
+
+        -------------------------------------------------------------------
+        MONITOR_CASE <= "STIMULUS_ACCELERATOR_SCALAR_INTEGER_DIVIDER_CASE 2                    ";
+        -------------------------------------------------------------------
+
+        SCALAR_INTEGER_DIVIDER_DATA_A_IN <= MIN_NEGATIVE;
+        SCALAR_INTEGER_DIVIDER_DATA_B_IN <= MAX_POSITIVE;
+      end if;
+
+      if (STIMULUS_ACCELERATOR_SCALAR_INTEGER_DIVIDER_CASE_3) then
+
+        -------------------------------------------------------------------
+        MONITOR_CASE <= "STIMULUS_ACCELERATOR_SCALAR_INTEGER_DIVIDER_CASE 3                    ";
+        -------------------------------------------------------------------
+
+        SCALAR_INTEGER_DIVIDER_DATA_A_IN <= MIN_NEGATIVE;
+        SCALAR_INTEGER_DIVIDER_DATA_B_IN <= MIN_NEGATIVE;
+      end if;
+
+      if (STIMULUS_ACCELERATOR_SCALAR_INTEGER_DIVIDER_CASE_4) then
+
+        -------------------------------------------------------------------
+        MONITOR_CASE <= "STIMULUS_ACCELERATOR_SCALAR_INTEGER_DIVIDER_CASE 4                    ";
+        -------------------------------------------------------------------
+
+        SCALAR_INTEGER_DIVIDER_DATA_A_IN <= INT_P_NINE;
+        SCALAR_INTEGER_DIVIDER_DATA_B_IN <= INT_P_ONE;
+      end if;
+
+      if (STIMULUS_ACCELERATOR_SCALAR_INTEGER_DIVIDER_CASE_5) then
+
+        -------------------------------------------------------------------
+        MONITOR_CASE <= "STIMULUS_ACCELERATOR_SCALAR_INTEGER_DIVIDER_CASE 5                    ";
+        -------------------------------------------------------------------
+
+        SCALAR_INTEGER_DIVIDER_DATA_A_IN <= INT_P_TWO;
+        SCALAR_INTEGER_DIVIDER_DATA_B_IN <= INT_N_EIGHT;
+      end if;
+
+      if (STIMULUS_ACCELERATOR_SCALAR_INTEGER_DIVIDER_CASE_6) then
+
+        -------------------------------------------------------------------
+        MONITOR_CASE <= "STIMULUS_ACCELERATOR_SCALAR_INTEGER_DIVIDER_CASE 6                    ";
+        -------------------------------------------------------------------
+
+        SCALAR_INTEGER_DIVIDER_DATA_A_IN <= INT_N_SEVEN;
+        SCALAR_INTEGER_DIVIDER_DATA_B_IN <= INT_P_THREE;
+      end if;
+
+      if (STIMULUS_ACCELERATOR_SCALAR_INTEGER_DIVIDER_CASE_7) then
+
+        -------------------------------------------------------------------
+        MONITOR_CASE <= "STIMULUS_ACCELERATOR_SCALAR_INTEGER_DIVIDER_CASE 7                    ";
+        -------------------------------------------------------------------
+
+        SCALAR_INTEGER_DIVIDER_DATA_A_IN <= INT_N_FOUR;
+        SCALAR_INTEGER_DIVIDER_DATA_B_IN <= INT_N_SIX;
       end if;
 
       wait for WORKING;
@@ -531,19 +711,19 @@ begin
     if (STIMULUS_ACCELERATOR_VECTOR_INTEGER_ADDER_TEST) then
 
       -------------------------------------------------------------------
-      MONITOR_TEST <= "STIMULUS_NTM_VECTOR_ADDER_TEST          ";
+      MONITOR_TEST <= "STIMULUS_ACCELERATOR_VECTOR_INTEGER_ADDER_TEST                        ";
       -------------------------------------------------------------------
 
       -- CONTROL
       VECTOR_INTEGER_ADDER_OPERATION <= '0';
 
       -- DATA
-      VECTOR_INTEGER_ADDER_SIZE_IN <= THREE_CONTROL;
+      VECTOR_INTEGER_ADDER_SIZE_IN <= FOUR_CONTROL;
 
       if (STIMULUS_ACCELERATOR_VECTOR_INTEGER_ADDER_CASE_0) then
 
         -------------------------------------------------------------------
-        MONITOR_CASE <= "STIMULUS_NTM_VECTOR_ADDER_CASE 0        ";
+        MONITOR_CASE <= "STIMULUS_ACCELERATOR_VECTOR_INTEGER_ADDER_CASE 0                      ";
         -------------------------------------------------------------------
 
         -- INITIAL CONDITIONS
@@ -594,7 +774,7 @@ begin
       if (STIMULUS_ACCELERATOR_VECTOR_INTEGER_ADDER_CASE_1) then
 
         -------------------------------------------------------------------
-        MONITOR_CASE <= "STIMULUS_NTM_VECTOR_ADDER_CASE 1        ";
+        MONITOR_CASE <= "STIMULUS_ACCELERATOR_VECTOR_INTEGER_ADDER_CASE 1                      ";
         -------------------------------------------------------------------
 
         -- INITIAL CONDITIONS
@@ -649,16 +829,16 @@ begin
     if (STIMULUS_ACCELERATOR_VECTOR_INTEGER_MULTIPLIER_TEST) then
 
       -------------------------------------------------------------------
-      MONITOR_TEST <= "STIMULUS_NTM_VECTOR_MULTIPLIER_TEST     ";
+      MONITOR_TEST <= "STIMULUS_ACCELERATOR_VECTOR_INTEGER_MULTIPLIER_TEST                   ";
       -------------------------------------------------------------------
 
       -- DATA
-      VECTOR_INTEGER_MULTIPLIER_SIZE_IN <= THREE_CONTROL;
+      VECTOR_INTEGER_MULTIPLIER_SIZE_IN <= FOUR_CONTROL;
 
       if (STIMULUS_ACCELERATOR_VECTOR_INTEGER_MULTIPLIER_CASE_0) then
 
         -------------------------------------------------------------------
-        MONITOR_CASE <= "STIMULUS_NTM_VECTOR_MULTIPLIER_CASE 0   ";
+        MONITOR_CASE <= "STIMULUS_ACCELERATOR_VECTOR_INTEGER_MULTIPLIER_CASE 0                 ";
         -------------------------------------------------------------------
 
         -- INITIAL CONDITIONS
@@ -709,7 +889,7 @@ begin
       if (STIMULUS_ACCELERATOR_VECTOR_INTEGER_MULTIPLIER_CASE_1) then
 
         -------------------------------------------------------------------
-        MONITOR_CASE <= "STIMULUS_NTM_VECTOR_MULTIPLIER_CASE 1   ";
+        MONITOR_CASE <= "STIMULUS_ACCELERATOR_VECTOR_INTEGER_MULTIPLIER_CASE 1                 ";
         -------------------------------------------------------------------
 
         -- INITIAL CONDITIONS
@@ -764,16 +944,16 @@ begin
     if (STIMULUS_ACCELERATOR_VECTOR_INTEGER_DIVIDER_TEST) then
 
       -------------------------------------------------------------------
-      MONITOR_TEST <= "STIMULUS_NTM_VECTOR_DIVIDER_TEST        ";
+      MONITOR_TEST <= "STIMULUS_ACCELERATOR_VECTOR_INTEGER_DIVIDER_TEST                      ";
       -------------------------------------------------------------------
 
       -- DATA
-      VECTOR_INTEGER_DIVIDER_SIZE_IN <= THREE_CONTROL;
+      VECTOR_INTEGER_DIVIDER_SIZE_IN <= FOUR_CONTROL;
 
       if (STIMULUS_ACCELERATOR_VECTOR_INTEGER_DIVIDER_CASE_0) then
 
         -------------------------------------------------------------------
-        MONITOR_CASE <= "STIMULUS_NTM_VECTOR_DIVIDER_CASE 0      ";
+        MONITOR_CASE <= "STIMULUS_ACCELERATOR_VECTOR_INTEGER_DIVIDER_CASE 0                    ";
         -------------------------------------------------------------------
 
         -- INITIAL CONDITIONS
@@ -824,7 +1004,7 @@ begin
       if (STIMULUS_ACCELERATOR_VECTOR_INTEGER_DIVIDER_CASE_1) then
 
         -------------------------------------------------------------------
-        MONITOR_CASE <= "STIMULUS_NTM_VECTOR_DIVIDER_CASE 1      ";
+        MONITOR_CASE <= "STIMULUS_ACCELERATOR_VECTOR_INTEGER_DIVIDER_CASE 1                    ";
         -------------------------------------------------------------------
 
         -- INITIAL CONDITIONS
@@ -883,20 +1063,20 @@ begin
     if (STIMULUS_ACCELERATOR_MATRIX_INTEGER_ADDER_TEST) then
 
       -------------------------------------------------------------------
-      MONITOR_TEST <= "STIMULUS_NTM_MATRIX_ADDER_TEST          ";
+      MONITOR_TEST <= "STIMULUS_ACCELERATOR_MATRIX_INTEGER_ADDER_TEST                        ";
       -------------------------------------------------------------------
 
       -- CONTROL
       MATRIX_INTEGER_ADDER_OPERATION <= '0';
 
       -- DATA
-      MATRIX_INTEGER_ADDER_SIZE_I_IN <= THREE_CONTROL;
-      MATRIX_INTEGER_ADDER_SIZE_J_IN <= THREE_CONTROL;
+      MATRIX_INTEGER_ADDER_SIZE_I_IN <= FOUR_CONTROL;
+      MATRIX_INTEGER_ADDER_SIZE_J_IN <= FOUR_CONTROL;
 
       if (STIMULUS_ACCELERATOR_MATRIX_INTEGER_ADDER_CASE_0) then
 
         -------------------------------------------------------------------
-        MONITOR_CASE <= "STIMULUS_NTM_MATRIX_ADDER_CASE 0        ";
+        MONITOR_CASE <= "STIMULUS_ACCELERATOR_MATRIX_INTEGER_ADDER_CASE 0                      ";
         -------------------------------------------------------------------
 
         -- INITIAL CONDITIONS
@@ -967,7 +1147,7 @@ begin
       if (STIMULUS_ACCELERATOR_MATRIX_INTEGER_ADDER_CASE_1) then
 
         -------------------------------------------------------------------
-        MONITOR_CASE <= "STIMULUS_NTM_MATRIX_ADDER_CASE 1        ";
+        MONITOR_CASE <= "STIMULUS_ACCELERATOR_MATRIX_INTEGER_ADDER_CASE 1                      ";
         -------------------------------------------------------------------
 
         -- INITIAL CONDITIONS
@@ -1042,17 +1222,17 @@ begin
     if (STIMULUS_ACCELERATOR_MATRIX_INTEGER_MULTIPLIER_TEST) then
 
       -------------------------------------------------------------------
-      MONITOR_TEST <= "STIMULUS_NTM_MATRIX_MULTIPLIER_TEST     ";
+      MONITOR_TEST <= "STIMULUS_ACCELERATOR_MATRIX_INTEGER_MULTIPLIER_TEST                   ";
       -------------------------------------------------------------------
 
       -- DATA
-      MATRIX_INTEGER_MULTIPLIER_SIZE_I_IN <= THREE_CONTROL;
-      MATRIX_INTEGER_MULTIPLIER_SIZE_J_IN <= THREE_CONTROL;
+      MATRIX_INTEGER_MULTIPLIER_SIZE_I_IN <= FOUR_CONTROL;
+      MATRIX_INTEGER_MULTIPLIER_SIZE_J_IN <= FOUR_CONTROL;
 
       if (STIMULUS_ACCELERATOR_MATRIX_INTEGER_MULTIPLIER_CASE_0) then
 
         -------------------------------------------------------------------
-        MONITOR_CASE <= "STIMULUS_NTM_MATRIX_MULTIPLIER_CASE 0   ";
+        MONITOR_CASE <= "STIMULUS_ACCELERATOR_MATRIX_INTEGER_MULTIPLIER_CASE 0                 ";
         -------------------------------------------------------------------
 
         -- INITIAL CONDITIONS
@@ -1123,7 +1303,7 @@ begin
       if (STIMULUS_ACCELERATOR_MATRIX_INTEGER_MULTIPLIER_CASE_1) then
 
         -------------------------------------------------------------------
-        MONITOR_CASE <= "STIMULUS_NTM_MATRIX_MULTIPLIER_CASE 1   ";
+        MONITOR_CASE <= "STIMULUS_ACCELERATOR_MATRIX_INTEGER_MULTIPLIER_CASE 1                 ";
         -------------------------------------------------------------------
 
         -- INITIAL CONDITIONS
@@ -1198,17 +1378,17 @@ begin
     if (STIMULUS_ACCELERATOR_MATRIX_INTEGER_DIVIDER_TEST) then
 
       -------------------------------------------------------------------
-      MONITOR_TEST <= "STIMULUS_NTM_MATRIX_DIVIDER_TEST        ";
+      MONITOR_TEST <= "STIMULUS_ACCELERATOR_MATRIX_INTEGER_DIVIDER_TEST                      ";
       -------------------------------------------------------------------
 
       -- DATA
-      MATRIX_INTEGER_DIVIDER_SIZE_I_IN <= THREE_CONTROL;
-      MATRIX_INTEGER_DIVIDER_SIZE_J_IN <= THREE_CONTROL;
+      MATRIX_INTEGER_DIVIDER_SIZE_I_IN <= FOUR_CONTROL;
+      MATRIX_INTEGER_DIVIDER_SIZE_J_IN <= FOUR_CONTROL;
 
       if (STIMULUS_ACCELERATOR_MATRIX_INTEGER_DIVIDER_CASE_0) then
 
         -------------------------------------------------------------------
-        MONITOR_CASE <= "STIMULUS_NTM_MATRIX_DIVIDER_CASE 0      ";
+        MONITOR_CASE <= "STIMULUS_ACCELERATOR_MATRIX_INTEGER_DIVIDER_CASE 0                    ";
         -------------------------------------------------------------------
 
         -- INITIAL CONDITIONS
@@ -1279,7 +1459,7 @@ begin
       if (STIMULUS_ACCELERATOR_MATRIX_INTEGER_DIVIDER_CASE_1) then
 
         -------------------------------------------------------------------
-        MONITOR_CASE <= "STIMULUS_NTM_MATRIX_DIVIDER_CASE 1      ";
+        MONITOR_CASE <= "STIMULUS_ACCELERATOR_MATRIX_INTEGER_DIVIDER_CASE 1                    ";
         -------------------------------------------------------------------
 
         -- INITIAL CONDITIONS
@@ -1358,21 +1538,21 @@ begin
     if (STIMULUS_ACCELERATOR_TENSOR_INTEGER_ADDER_TEST) then
 
       -------------------------------------------------------------------
-      MONITOR_TEST <= "STIMULUS_NTM_TENSOR_ADDER_TEST          ";
+      MONITOR_TEST <= "STIMULUS_ACCELERATOR_TENSOR_INTEGER_ADDER_TEST                        ";
       -------------------------------------------------------------------
 
       -- CONTROL
       TENSOR_INTEGER_ADDER_OPERATION <= '0';
 
       -- DATA
-      TENSOR_INTEGER_ADDER_SIZE_I_IN <= THREE_CONTROL;
-      TENSOR_INTEGER_ADDER_SIZE_J_IN <= THREE_CONTROL;
-      TENSOR_INTEGER_ADDER_SIZE_K_IN <= THREE_CONTROL;
+      TENSOR_INTEGER_ADDER_SIZE_I_IN <= FOUR_CONTROL;
+      TENSOR_INTEGER_ADDER_SIZE_J_IN <= FOUR_CONTROL;
+      TENSOR_INTEGER_ADDER_SIZE_K_IN <= FOUR_CONTROL;
 
       if (STIMULUS_ACCELERATOR_TENSOR_INTEGER_ADDER_CASE_0) then
 
         -------------------------------------------------------------------
-        MONITOR_CASE <= "STIMULUS_NTM_TENSOR_ADDER_CASE 0        ";
+        MONITOR_CASE <= "STIMULUS_ACCELERATOR_TENSOR_INTEGER_ADDER_CASE 0                      ";
         -------------------------------------------------------------------
 
         -- INITIAL CONDITIONS
@@ -1465,7 +1645,7 @@ begin
       if (STIMULUS_ACCELERATOR_TENSOR_INTEGER_ADDER_CASE_1) then
 
         -------------------------------------------------------------------
-        MONITOR_CASE <= "STIMULUS_NTM_TENSOR_ADDER_CASE 1        ";
+        MONITOR_CASE <= "STIMULUS_ACCELERATOR_TENSOR_INTEGER_ADDER_CASE 1                      ";
         -------------------------------------------------------------------
 
         -- INITIAL CONDITIONS
@@ -1562,18 +1742,18 @@ begin
     if (STIMULUS_ACCELERATOR_TENSOR_INTEGER_MULTIPLIER_TEST) then
 
       -------------------------------------------------------------------
-      MONITOR_TEST <= "STIMULUS_NTM_TENSOR_MULTIPLIER_TEST     ";
+      MONITOR_TEST <= "STIMULUS_ACCELERATOR_TENSOR_INTEGER_MULTIPLIER_TEST                   ";
       -------------------------------------------------------------------
 
       -- DATA
-      TENSOR_INTEGER_MULTIPLIER_SIZE_I_IN <= THREE_CONTROL;
-      TENSOR_INTEGER_MULTIPLIER_SIZE_J_IN <= THREE_CONTROL;
-      TENSOR_INTEGER_MULTIPLIER_SIZE_K_IN <= THREE_CONTROL;
+      TENSOR_INTEGER_MULTIPLIER_SIZE_I_IN <= FOUR_CONTROL;
+      TENSOR_INTEGER_MULTIPLIER_SIZE_J_IN <= FOUR_CONTROL;
+      TENSOR_INTEGER_MULTIPLIER_SIZE_K_IN <= FOUR_CONTROL;
 
       if (STIMULUS_ACCELERATOR_TENSOR_INTEGER_MULTIPLIER_CASE_0) then
 
         -------------------------------------------------------------------
-        MONITOR_CASE <= "STIMULUS_NTM_TENSOR_MULTIPLIER_CASE 0   ";
+        MONITOR_CASE <= "STIMULUS_ACCELERATOR_TENSOR_INTEGER_MULTIPLIER_CASE 0                 ";
         -------------------------------------------------------------------
 
         -- INITIAL CONDITIONS
@@ -1666,7 +1846,7 @@ begin
       if (STIMULUS_ACCELERATOR_TENSOR_INTEGER_MULTIPLIER_CASE_1) then
 
         -------------------------------------------------------------------
-        MONITOR_CASE <= "STIMULUS_NTM_TENSOR_MULTIPLIER_CASE 1   ";
+        MONITOR_CASE <= "STIMULUS_ACCELERATOR_TENSOR_INTEGER_MULTIPLIER_CASE 1                 ";
         -------------------------------------------------------------------
 
         -- INITIAL CONDITIONS
@@ -1763,18 +1943,18 @@ begin
     if (STIMULUS_ACCELERATOR_TENSOR_INTEGER_DIVIDER_TEST) then
 
       -------------------------------------------------------------------
-      MONITOR_TEST <= "STIMULUS_NTM_TENSOR_DIVIDER_TEST        ";
+      MONITOR_TEST <= "STIMULUS_ACCELERATOR_TENSOR_INTEGER_DIVIDER_TEST                      ";
       -------------------------------------------------------------------
 
       -- DATA
-      TENSOR_INTEGER_DIVIDER_SIZE_I_IN <= THREE_CONTROL;
-      TENSOR_INTEGER_DIVIDER_SIZE_J_IN <= THREE_CONTROL;
-      TENSOR_INTEGER_DIVIDER_SIZE_K_IN <= THREE_CONTROL;
+      TENSOR_INTEGER_DIVIDER_SIZE_I_IN <= FOUR_CONTROL;
+      TENSOR_INTEGER_DIVIDER_SIZE_J_IN <= FOUR_CONTROL;
+      TENSOR_INTEGER_DIVIDER_SIZE_K_IN <= FOUR_CONTROL;
 
       if (STIMULUS_ACCELERATOR_TENSOR_INTEGER_DIVIDER_CASE_0) then
 
         -------------------------------------------------------------------
-        MONITOR_CASE <= "STIMULUS_NTM_TENSOR_DIVIDER_CASE 0      ";
+        MONITOR_CASE <= "STIMULUS_ACCELERATOR_TENSOR_INTEGER_DIVIDER_CASE 0                    ";
         -------------------------------------------------------------------
 
         -- INITIAL CONDITIONS
@@ -1867,7 +2047,7 @@ begin
       if (STIMULUS_ACCELERATOR_TENSOR_INTEGER_DIVIDER_CASE_1) then
 
         -------------------------------------------------------------------
-        MONITOR_CASE <= "STIMULUS_NTM_TENSOR_DIVIDER_CASE 1      ";
+        MONITOR_CASE <= "STIMULUS_ACCELERATOR_TENSOR_INTEGER_DIVIDER_CASE 1                    ";
         -------------------------------------------------------------------
 
         -- INITIAL CONDITIONS

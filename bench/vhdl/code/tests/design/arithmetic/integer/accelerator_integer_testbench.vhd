@@ -42,14 +42,14 @@ library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
 
-use work.accelerator_arithmetic_pkg.all;
+use work.accelerator_arithmetic_vhdl_pkg.all;
 use work.accelerator_integer_pkg.all;
 
 entity accelerator_integer_testbench is
   generic (
     -- SYSTEM-SIZE
     DATA_SIZE    : integer := 64;
-    CONTROL_SIZE : integer := 64;
+    CONTROL_SIZE : integer := 4;
 
     X : std_logic_vector(DATA_SIZE-1 downto 0) := std_logic_vector(to_unsigned(64, DATA_SIZE));  -- x in 0 to X-1
     Y : std_logic_vector(DATA_SIZE-1 downto 0) := std_logic_vector(to_unsigned(64, DATA_SIZE));  -- y in 0 to Y-1
@@ -70,6 +70,30 @@ entity accelerator_integer_testbench is
     ENABLE_ACCELERATOR_SCALAR_INTEGER_ADDER_CASE_1      : boolean := false;
     ENABLE_ACCELERATOR_SCALAR_INTEGER_MULTIPLIER_CASE_1 : boolean := false;
     ENABLE_ACCELERATOR_SCALAR_INTEGER_DIVIDER_CASE_1    : boolean := false;
+
+    ENABLE_NTM_SCALAR_INTEGER_ADDER_CASE_2      : boolean := false;
+    ENABLE_NTM_SCALAR_INTEGER_MULTIPLIER_CASE_2 : boolean := false;
+    ENABLE_NTM_SCALAR_INTEGER_DIVIDER_CASE_2    : boolean := false;
+
+    ENABLE_NTM_SCALAR_INTEGER_ADDER_CASE_3      : boolean := false;
+    ENABLE_NTM_SCALAR_INTEGER_MULTIPLIER_CASE_3 : boolean := false;
+    ENABLE_NTM_SCALAR_INTEGER_DIVIDER_CASE_3    : boolean := false;
+
+    ENABLE_NTM_SCALAR_INTEGER_ADDER_CASE_4      : boolean := false;
+    ENABLE_NTM_SCALAR_INTEGER_MULTIPLIER_CASE_4 : boolean := false;
+    ENABLE_NTM_SCALAR_INTEGER_DIVIDER_CASE_4    : boolean := false;
+
+    ENABLE_NTM_SCALAR_INTEGER_ADDER_CASE_5      : boolean := false;
+    ENABLE_NTM_SCALAR_INTEGER_MULTIPLIER_CASE_5 : boolean := false;
+    ENABLE_NTM_SCALAR_INTEGER_DIVIDER_CASE_5    : boolean := false;
+
+    ENABLE_NTM_SCALAR_INTEGER_ADDER_CASE_6      : boolean := false;
+    ENABLE_NTM_SCALAR_INTEGER_MULTIPLIER_CASE_6 : boolean := false;
+    ENABLE_NTM_SCALAR_INTEGER_DIVIDER_CASE_6    : boolean := false;
+
+    ENABLE_NTM_SCALAR_INTEGER_ADDER_CASE_7      : boolean := false;
+    ENABLE_NTM_SCALAR_INTEGER_MULTIPLIER_CASE_7 : boolean := false;
+    ENABLE_NTM_SCALAR_INTEGER_DIVIDER_CASE_7    : boolean := false;
 
     -- VECTOR-FUNCTIONALITY
     ENABLE_ACCELERATOR_VECTOR_INTEGER_ADDER_TEST      : boolean := false;

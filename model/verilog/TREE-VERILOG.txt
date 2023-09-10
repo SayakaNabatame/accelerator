@@ -1,11 +1,4 @@
 code
-├── architecture
-│   ├── mpsoc
-│   │   └── model_mpsoc.sv
-│   ├── pu
-│   │   └── model_pu.sv
-│   └── soc
-│       └── model_soc.sv
 ├── arithmetic
 │   ├── fixed
 │   │   ├── matrix
@@ -68,7 +61,8 @@ code
 │   │   │   ├── model_matrix_summation.sv
 │   │   │   ├── model_matrix_transpose.sv
 │   │   │   ├── model_matrix_vector_convolution.sv
-│   │   │   └── model_matrix_vector_product.sv
+│   │   │   ├── model_matrix_vector_product.sv
+│   │   │   └── model_transpose_vector_product.sv
 │   │   ├── tensor
 │   │   │   ├── model_tensor_convolution.sv
 │   │   │   ├── model_tensor_inverse.sv
@@ -82,8 +76,7 @@ code
 │   │       ├── model_vector_cosine_similarity.sv
 │   │       ├── model_vector_module.sv
 │   │       ├── model_vector_multiplication.sv
-│   │       ├── model_vector_summation.sv
-│   │       └── model_vector_transpose.sv
+│   │       └── model_vector_summation.sv
 │   ├── calculus
 │   │   ├── matrix
 │   │   │   ├── model_matrix_differentiation.sv
@@ -127,11 +120,13 @@ code
 │           ├── model_vector_sinh_function.sv
 │           └── model_vector_tanh_function.sv
 └── pkg
-    ├── model_arithmetic_pkg.sv
-    ├── model_fnn_controller_pkg.sv
-    ├── model_lstm_controller_pkg.sv
-    ├── model_math_pkg.sv
-    ├── model_ntm_core_pkg.sv
-    └── model_state_pkg.sv
+    ├── model_arithmetic_verilog_pkg.sv
+    ├── model_fnn_controller_verilog_pkg.sv
+    ├── model_linear_controller_verilog_pkg.sv
+    ├── model_lstm_controller_verilog_pkg.sv
+    ├── model_math_verilog_pkg.sv
+    ├── model_ntm_core_verilog_pkg.sv
+    ├── model_state_verilog_pkg.sv
+    └── model_transformer_controller_verilog_pkg.sv
 
-38 directories, 96 files
+34 directories, 95 files
