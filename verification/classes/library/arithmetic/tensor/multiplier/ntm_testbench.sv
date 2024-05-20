@@ -67,6 +67,7 @@ module ntm_testbench;
     clk = 0;
     rst = 1;
     #5;
+
     rst = 0;
   end
 

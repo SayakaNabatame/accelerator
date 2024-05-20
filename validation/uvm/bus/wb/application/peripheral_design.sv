@@ -24,17 +24,19 @@ module peripheral_design (
     if (ubus_reset) begin
       ubus_start <= 1'b0;
       st         <= 3'h0;
-    end else
+    end else begin
       case (st)
-        0: begin  //Begin out of Reset
+        0: begin  // Begin out of Reset
           ubus_start <= 1'b1;
           st         <= 3'h3;
         end
-        3: begin  //Start state
+        3: begin  // Start state
           ubus_start <= 1'b0;
           if ((ubus_gnt_master_0 == 0) && (ubus_gnt_master_1 == 0)) begin
             st <= 3'h4;
-          end else st <= 3'h1;
+          end else begin
+            st <= 3'h1;
+          end
         end
         4: begin  // No-op state
           ubus_start <= 1'b1;
@@ -54,6 +56,7 @@ module peripheral_design (
           end
         end
       endcase
+    end
   end
 
   always @(negedge ubus_clock or posedge ubus_reset) begin

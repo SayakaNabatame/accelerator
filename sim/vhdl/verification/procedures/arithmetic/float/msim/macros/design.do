@@ -2,49 +2,49 @@
 # DESIGN COMPILATION
 #*******************
 
-do ./variables.do
+do variables.do
 
 vlib work
 
 ##################################################################################################
-# accelerator_scalar_float_adder_design_compilation ####################################################
+# accelerator_scalar_float_adder_design_compilation
 ##################################################################################################
 
 alias accelerator_scalar_float_adder_design_compilation {
-  vcom -2008 -reportprogress 300 -work work $model_path/pkg/model_arithmetic_pkg.vhd
+  vcom -2008 -reportprogress 300 -work work $model_path/pkg/model_arithmetic_vhdl_pkg.vhd
   vcom -2008 -reportprogress 300 -work work $design_path/pkg/accelerator_arithmetic_vhdl_pkg.vhd
   vcom -2008 -reportprogress 300 -work work $model_path/arithmetic/float/scalar/model_scalar_float_adder.vhd
   vcom -2008 -reportprogress 300 -work work $design_path/arithmetic/float/scalar/accelerator_scalar_float_adder.vhd
 }
 
 ##################################################################################################
-# accelerator_scalar_float_multiplier_design_compilation ###############################################
+# accelerator_scalar_float_multiplier_design_compilation
 ##################################################################################################
 
 alias accelerator_scalar_float_multiplier_design_compilation {
-  vcom -2008 -reportprogress 300 -work work $model_path/pkg/model_arithmetic_pkg.vhd
+  vcom -2008 -reportprogress 300 -work work $model_path/pkg/model_arithmetic_vhdl_pkg.vhd
   vcom -2008 -reportprogress 300 -work work $design_path/pkg/accelerator_arithmetic_vhdl_pkg.vhd
   vcom -2008 -reportprogress 300 -work work $model_path/arithmetic/float/scalar/model_scalar_float_multiplier.vhd
   vcom -2008 -reportprogress 300 -work work $design_path/arithmetic/float/scalar/accelerator_scalar_float_multiplier.vhd
 }
 
 ##################################################################################################
-# accelerator_scalar_float_divider_design_compilation ##################################################
+# accelerator_scalar_float_divider_design_compilation
 ##################################################################################################
 
 alias accelerator_scalar_float_divider_design_compilation {
-  vcom -2008 -reportprogress 300 -work work $model_path/pkg/model_arithmetic_pkg.vhd
+  vcom -2008 -reportprogress 300 -work work $model_path/pkg/model_arithmetic_vhdl_pkg.vhd
   vcom -2008 -reportprogress 300 -work work $design_path/pkg/accelerator_arithmetic_vhdl_pkg.vhd
   vcom -2008 -reportprogress 300 -work work $model_path/arithmetic/float/scalar/model_scalar_float_divider.vhd
   vcom -2008 -reportprogress 300 -work work $design_path/arithmetic/float/scalar/accelerator_scalar_float_divider.vhd
 }
 
 ##################################################################################################
-# accelerator_vector_float_adder_design_compilation ####################################################
+# accelerator_vector_float_adder_design_compilation
 ##################################################################################################
 
 alias accelerator_vector_float_adder_design_compilation {
-  vcom -2008 -reportprogress 300 -work work $model_path/pkg/model_arithmetic_pkg.vhd
+  vcom -2008 -reportprogress 300 -work work $model_path/pkg/model_arithmetic_vhdl_pkg.vhd
   vcom -2008 -reportprogress 300 -work work $design_path/pkg/accelerator_arithmetic_vhdl_pkg.vhd
   vcom -2008 -reportprogress 300 -work work $model_path/arithmetic/float/scalar/model_scalar_float_adder.vhd
   vcom -2008 -reportprogress 300 -work work $model_path/arithmetic/float/vector/model_vector_float_adder.vhd
@@ -53,11 +53,11 @@ alias accelerator_vector_float_adder_design_compilation {
 }
 
 ##################################################################################################
-# accelerator_vector_float_multiplier_design_compilation ###############################################
+# accelerator_vector_float_multiplier_design_compilation
 ##################################################################################################
 
 alias accelerator_vector_float_multiplier_design_compilation {
-  vcom -2008 -reportprogress 300 -work work $model_path/pkg/model_arithmetic_pkg.vhd
+  vcom -2008 -reportprogress 300 -work work $model_path/pkg/model_arithmetic_vhdl_pkg.vhd
   vcom -2008 -reportprogress 300 -work work $design_path/pkg/accelerator_arithmetic_vhdl_pkg.vhd
   vcom -2008 -reportprogress 300 -work work $model_path/arithmetic/float/scalar/model_scalar_float_multiplier.vhd
   vcom -2008 -reportprogress 300 -work work $model_path/arithmetic/float/vector/model_vector_float_multiplier.vhd
@@ -66,11 +66,11 @@ alias accelerator_vector_float_multiplier_design_compilation {
 }
 
 ##################################################################################################
-# accelerator_vector_float_divider_design_compilation ##################################################
+# accelerator_vector_float_divider_design_compilation
 ##################################################################################################
 
 alias accelerator_vector_float_divider_design_compilation {
-  vcom -2008 -reportprogress 300 -work work $model_path/pkg/model_arithmetic_pkg.vhd
+  vcom -2008 -reportprogress 300 -work work $model_path/pkg/model_arithmetic_vhdl_pkg.vhd
   vcom -2008 -reportprogress 300 -work work $design_path/pkg/accelerator_arithmetic_vhdl_pkg.vhd
   vcom -2008 -reportprogress 300 -work work $model_path/arithmetic/float/scalar/model_scalar_float_divider.vhd
   vcom -2008 -reportprogress 300 -work work $model_path/arithmetic/float/vector/model_vector_float_divider.vhd
@@ -79,11 +79,11 @@ alias accelerator_vector_float_divider_design_compilation {
 }
 
 ##################################################################################################
-# accelerator_matrix_float_adder_design_compilation ####################################################
+# accelerator_matrix_float_adder_design_compilation
 ##################################################################################################
 
 alias accelerator_matrix_float_adder_design_compilation {
-  vcom -2008 -reportprogress 300 -work work $model_path/pkg/model_arithmetic_pkg.vhd
+  vcom -2008 -reportprogress 300 -work work $model_path/pkg/model_arithmetic_vhdl_pkg.vhd
   vcom -2008 -reportprogress 300 -work work $design_path/pkg/accelerator_arithmetic_vhdl_pkg.vhd
   vcom -2008 -reportprogress 300 -work work $model_path/arithmetic/float/scalar/model_scalar_float_adder.vhd
   vcom -2008 -reportprogress 300 -work work $model_path/arithmetic/float/matrix/model_matrix_float_adder.vhd
@@ -92,11 +92,11 @@ alias accelerator_matrix_float_adder_design_compilation {
 }
 
 ##################################################################################################
-# accelerator_matrix_float_multiplier_design_compilation ###############################################
+# accelerator_matrix_float_multiplier_design_compilation
 ##################################################################################################
 
 alias accelerator_matrix_float_multiplier_design_compilation {
-  vcom -2008 -reportprogress 300 -work work $model_path/pkg/model_arithmetic_pkg.vhd
+  vcom -2008 -reportprogress 300 -work work $model_path/pkg/model_arithmetic_vhdl_pkg.vhd
   vcom -2008 -reportprogress 300 -work work $design_path/pkg/accelerator_arithmetic_vhdl_pkg.vhd
   vcom -2008 -reportprogress 300 -work work $model_path/arithmetic/float/scalar/model_scalar_float_multiplier.vhd
   vcom -2008 -reportprogress 300 -work work $model_path/arithmetic/float/matrix/model_matrix_float_multiplier.vhd
@@ -105,11 +105,11 @@ alias accelerator_matrix_float_multiplier_design_compilation {
 }
 
 ##################################################################################################
-# accelerator_matrix_float_divider_design_compilation ##################################################
+# accelerator_matrix_float_divider_design_compilation
 ##################################################################################################
 
 alias accelerator_matrix_float_divider_design_compilation {
-  vcom -2008 -reportprogress 300 -work work $model_path/pkg/model_arithmetic_pkg.vhd
+  vcom -2008 -reportprogress 300 -work work $model_path/pkg/model_arithmetic_vhdl_pkg.vhd
   vcom -2008 -reportprogress 300 -work work $design_path/pkg/accelerator_arithmetic_vhdl_pkg.vhd
   vcom -2008 -reportprogress 300 -work work $model_path/arithmetic/float/scalar/model_scalar_float_divider.vhd
   vcom -2008 -reportprogress 300 -work work $model_path/arithmetic/float/matrix/model_matrix_float_divider.vhd
@@ -118,11 +118,11 @@ alias accelerator_matrix_float_divider_design_compilation {
 }
 
 ##################################################################################################
-# accelerator_tensor_float_adder_design_compilation ####################################################
+# accelerator_tensor_float_adder_design_compilation
 ##################################################################################################
 
 alias accelerator_tensor_float_adder_design_compilation {
-  vcom -2008 -reportprogress 300 -work work $model_path/pkg/model_arithmetic_pkg.vhd
+  vcom -2008 -reportprogress 300 -work work $model_path/pkg/model_arithmetic_vhdl_pkg.vhd
   vcom -2008 -reportprogress 300 -work work $design_path/pkg/accelerator_arithmetic_vhdl_pkg.vhd
   vcom -2008 -reportprogress 300 -work work $model_path/arithmetic/float/scalar/model_scalar_float_adder.vhd
   vcom -2008 -reportprogress 300 -work work $model_path/arithmetic/float/tensor/model_tensor_float_adder.vhd
@@ -131,11 +131,11 @@ alias accelerator_tensor_float_adder_design_compilation {
 }
 
 ##################################################################################################
-# accelerator_tensor_float_multiplier_design_compilation ###############################################
+# accelerator_tensor_float_multiplier_design_compilation
 ##################################################################################################
 
 alias accelerator_tensor_float_multiplier_design_compilation {
-  vcom -2008 -reportprogress 300 -work work $model_path/pkg/model_arithmetic_pkg.vhd
+  vcom -2008 -reportprogress 300 -work work $model_path/pkg/model_arithmetic_vhdl_pkg.vhd
   vcom -2008 -reportprogress 300 -work work $design_path/pkg/accelerator_arithmetic_vhdl_pkg.vhd
   vcom -2008 -reportprogress 300 -work work $model_path/arithmetic/float/scalar/model_scalar_float_multiplier.vhd
   vcom -2008 -reportprogress 300 -work work $model_path/arithmetic/float/tensor/model_tensor_float_multiplier.vhd
@@ -144,11 +144,11 @@ alias accelerator_tensor_float_multiplier_design_compilation {
 }
 
 ##################################################################################################
-# accelerator_tensor_float_divider_design_compilation ##################################################
+# accelerator_tensor_float_divider_design_compilation
 ##################################################################################################
 
 alias accelerator_tensor_float_divider_design_compilation {
-  vcom -2008 -reportprogress 300 -work work $model_path/pkg/model_arithmetic_pkg.vhd
+  vcom -2008 -reportprogress 300 -work work $model_path/pkg/model_arithmetic_vhdl_pkg.vhd
   vcom -2008 -reportprogress 300 -work work $design_path/pkg/accelerator_arithmetic_vhdl_pkg.vhd
   vcom -2008 -reportprogress 300 -work work $model_path/arithmetic/float/scalar/model_scalar_float_divider.vhd
   vcom -2008 -reportprogress 300 -work work $model_path/arithmetic/float/tensor/model_tensor_float_divider.vhd
@@ -159,51 +159,51 @@ alias accelerator_tensor_float_divider_design_compilation {
 ##################################################################################################
 
 alias d01 {
-  accelerator_scalar_float_adder_design_compilation 
+  accelerator_scalar_float_adder_design_compilation
 }
 
 alias d02 {
-  accelerator_scalar_float_multiplier_design_compilation 
+  accelerator_scalar_float_multiplier_design_compilation
 }
 
 alias d03 {
-  accelerator_scalar_float_divider_design_compilation 
+  accelerator_scalar_float_divider_design_compilation
 }
 
 alias d04 {
-  accelerator_vector_float_adder_design_compilation 
+  accelerator_vector_float_adder_design_compilation
 }
 
 alias d05 {
-  accelerator_vector_float_multiplier_design_compilation 
+  accelerator_vector_float_multiplier_design_compilation
 }
 
 alias d06 {
-  accelerator_vector_float_divider_design_compilation 
+  accelerator_vector_float_divider_design_compilation
 }
 
 alias d07 {
-  accelerator_matrix_float_adder_design_compilation 
+  accelerator_matrix_float_adder_design_compilation
 }
 
 alias d08 {
-  accelerator_matrix_float_multiplier_design_compilation 
+  accelerator_matrix_float_multiplier_design_compilation
 }
 
 alias d09 {
-  accelerator_matrix_float_divider_design_compilation 
+  accelerator_matrix_float_divider_design_compilation
 }
 
 alias d10 {
-  accelerator_tensor_float_adder_design_compilation 
+  accelerator_tensor_float_adder_design_compilation
 }
 
 alias d11 {
-  accelerator_tensor_float_multiplier_design_compilation 
+  accelerator_tensor_float_multiplier_design_compilation
 }
 
 alias d12 {
-  accelerator_tensor_float_divider_design_compilation 
+  accelerator_tensor_float_divider_design_compilation
 }
 
 echo "****************************************"
